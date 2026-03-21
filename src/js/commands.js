@@ -166,13 +166,15 @@
 
       results.innerHTML = matches
         .map(function (m, i) {
-          const label =
-            m.entry.type === "article"
-              ? "Article " + m.entry.article + (m.entry.paragraph > 0 ? "(" + m.entry.paragraph + ")" : "") +
-                (m.entry.title ? " — " + escapeHtml(m.entry.title) : "")
-              : m.entry.type === "gatekeeper"
-              ? "Gatekeeper — " + escapeHtml(m.entry.name)
-              : "Recital " + m.entry.number;
+          var label;
+          if (m.entry.type === "article") {
+            label = "Article " + m.entry.article + (m.entry.paragraph > 0 ? "(" + m.entry.paragraph + ")" : "") +
+              (m.entry.title ? " — " + escapeHtml(m.entry.title) : "");
+          } else if (m.entry.type === "gatekeeper") {
+            label = "Gatekeeper — " + escapeHtml(m.entry.name);
+          } else {
+            label = "Recital " + m.entry.number;
+          }
           return (
             '<div class="dma-result-item' + (i === 0 ? " selected" : "") + '">' +
             '<a href="' + m.entry.url + '">' +
