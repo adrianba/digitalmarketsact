@@ -29,16 +29,16 @@ module.exports = function (eleventyConfig) {
     for (const [name, celex] of Object.entries(defined_celex)) {
       const url = "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:" + celex;
       const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/ /g, "(?:\\s|&nbsp;)");
-      // Track <a> nesting to avoid linking inside existing links
-      var inLink = 0;
-      var re = new RegExp("(<a\\b[^>]*>|<\\/a>)|(" + escaped + ")", "gi");
+      // Track <a> and data-no-autolink nesting to avoid linking inside
+      var inSkip = 0;
+      var re = new RegExp("(<a\\b[^>]*>|<\\/a>|<[^>]+data-no-autolink[^>]*>|<\\/h[1-6]>)|(" + escaped + ")", "gi");
       content = content.replace(re, function (match, tag, text) {
         if (tag) {
-          if (tag.startsWith("</")) inLink = Math.max(0, inLink - 1);
-          else inLink++;
+          if (tag.startsWith("</")) inSkip = Math.max(0, inSkip - 1);
+          else if (!tag.endsWith("/>")) inSkip++;
           return match;
         }
-        if (inLink > 0) return match;
+        if (inSkip > 0) return match;
         return '<a href="' + url + '" class="recital-ref" target="_blank" rel="noopener">' + text + "</a>";
       });
     }
@@ -48,16 +48,16 @@ module.exports = function (eleventyConfig) {
   // Auto-link internal DMA article references (Article 1–54)
   eleventyConfig.addTransform("linkArticleRefs", function (content) {
     if (!(this.page.outputPath || "").endsWith(".html")) return content;
-    // Split HTML into chunks: tags vs text. Only replace in text outside <a> tags.
-    var inLink = 0;
-    var result = content.replace(/(<a\b[^>]*>|<\/a>)|Article(?:&nbsp;|\s)+(\d{1,2})(?:\((\d+)\))?/gi,
+    // Track <a> and data-no-autolink nesting to skip their content
+    var inSkip = 0;
+    var result = content.replace(/(<a\b[^>]*>|<\/a>|<[^>]+data-no-autolink[^>]*>|<\/h[1-6]>)|Article(?:&nbsp;|\s)+(\d{1,2})(?:\((\d+)\))?/gi,
       function (match, tag, artStr, paraStr) {
         if (tag) {
-          if (tag.startsWith("</")) inLink = Math.max(0, inLink - 1);
-          else inLink++;
+          if (tag.startsWith("</")) inSkip = Math.max(0, inSkip - 1);
+          else if (!tag.endsWith("/>")) inSkip++;
           return match;
         }
-        if (inLink > 0) return match;
+        if (inSkip > 0) return match;
         var artNum = parseInt(artStr, 10);
         if (artNum < 1 || artNum > 54) return match;
         var url = "/articles/" + artNum + "/";
