@@ -11,14 +11,16 @@
       { "name": "Google Ads", "type": "Online advertising service" },
       { "name": "YouTube", "type": "Video-sharing platform service" },
       { "name": "Android", "type": "Operating system" },
-      { "name": "Chrome", "type": "Web browser" },
-      { "name": "Gmail", "type": "Number-independent interpersonal communications service" }
+      { "name": "Chrome", "type": "Web browser" }
     ],
     "complianceReports": [
       { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
     ],
     "profilingReports": [
-      { "label": "Consumer profiling report", "url": "https://transparencyreport.google.com/report-downloads" }
+      {
+        "label": "Consumer profiling report",
+        "url": "https://transparencyreport.google.com/report-downloads"
+      }
     ]
   },
   {
@@ -33,7 +35,10 @@
       { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
     ],
     "profilingReports": [
-      { "label": "Consumer profiling report", "url": "https://www.aboutamazon.eu/news/policy/amazon-and-the-digital-markets-act" }
+      {
+        "label": "Consumer profiling report",
+        "url": "https://www.aboutamazon.eu/news/policy/amazon-and-the-digital-markets-act"
+      }
     ]
   },
   {
@@ -51,31 +56,36 @@
       { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
     ],
     "profilingReports": [
-      { "label": "Consumer profiling report", "url": "https://www.apple.com/legal/privacy/en-ww/personalized-user-experiences/" }
+      {
+        "label": "Consumer profiling report",
+        "url": "https://www.apple.com/legal/privacy/en-ww/personalized-user-experiences/"
+      }
     ]
   },
   {
     "name": "Booking Holdings Inc.",
     "slug": "booking",
     "designated": "2024-05-13",
-    "services": [
-      { "name": "Booking.com", "type": "Online intermediation service" }
-    ],
+    "services": [{ "name": "Booking.com", "type": "Online intermediation service" }],
     "complianceReports": [
       { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
     ],
     "profilingReports": [
-      { "label": "Consumer profiling report (2024)", "url": "https://www.bookingholdings.com/wp-content/uploads/2024/11/DMA-Consumer-Profiling-Report.pdf" },
-      { "label": "Consumer profiling report (November 2025)", "url": "https://www.bookingholdings.com/wp-content/uploads/2025/11/2025-DMA-Consumer-Profiling-Report-.pdf" }
+      {
+        "label": "Consumer profiling report (2024)",
+        "url": "https://www.bookingholdings.com/wp-content/uploads/2024/11/DMA-Consumer-Profiling-Report.pdf"
+      },
+      {
+        "label": "Consumer profiling report (November 2025)",
+        "url": "https://www.bookingholdings.com/wp-content/uploads/2025/11/2025-DMA-Consumer-Profiling-Report-.pdf"
+      }
     ]
   },
   {
     "name": "ByteDance Ltd.",
     "slug": "bytedance",
     "designated": "2023-09-06",
-    "services": [
-      { "name": "TikTok", "type": "Online social networking service" }
-    ],
+    "services": [{ "name": "TikTok", "type": "Online social networking service" }],
     "complianceReports": [
       { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
     ],
@@ -91,8 +101,8 @@
     "services": [
       { "name": "Facebook", "type": "Online social networking service" },
       { "name": "Instagram", "type": "Online social networking service" },
-      { "name": "WhatsApp", "type": "Number-independent interpersonal communications service" },
-      { "name": "Messenger", "type": "Number-independent interpersonal communications service" },
+      { "name": "WhatsApp", "type": "NIICS" },
+      { "name": "Messenger", "type": "NIICS" },
       { "name": "Meta Ads", "type": "Online advertising service" }
     ],
     "complianceReports": [
@@ -114,8 +124,14 @@
       { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
     ],
     "profilingReports": [
-      { "label": "Consumer profiling report (latest)", "url": "https://www.microsoft.com/en-us/legal/compliance/dmacompliance" },
-      { "label": "Consumer profiling report (previous)", "url": "https://www.microsoft.com/en-us/legal/compliance/dmacomplianceresourcesandreports" }
+      {
+        "label": "Consumer profiling report (latest)",
+        "url": "https://www.microsoft.com/en-us/legal/compliance/dmacompliance"
+      },
+      {
+        "label": "Consumer profiling report (previous)",
+        "url": "https://www.microsoft.com/en-us/legal/compliance/dmacomplianceresourcesandreports"
+      }
     ]
   }
 ]
