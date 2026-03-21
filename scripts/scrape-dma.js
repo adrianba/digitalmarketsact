@@ -198,8 +198,24 @@ function parseChaptersAndArticles($) {
           const paraNumStr = paraId.split(".")[1];
           const paraNum = parseInt(paraNumStr, 10);
 
-          // Get paragraph text
-          const directParas = $(this).find("> p.oj-normal");
+          // Get paragraph text — split into intro (before tables) and closing (after tables)
+          const children = $(this).children();
+          const introParas = [];
+          const closingParas = [];
+          let seenTable = false;
+
+          children.each(function () {
+            if ($(this).is("table") || $(this).is(".eli-subdivision")) {
+              seenTable = true;
+            } else if ($(this).is("p.oj-normal")) {
+              if (!seenTable) {
+                introParas.push(this);
+              } else {
+                closingParas.push(this);
+              }
+            }
+          });
+
           const tables = $(this).find("> table");
           const nestedDivs = $(this).find("> .eli-subdivision");
 
@@ -220,24 +236,27 @@ function parseChaptersAndArticles($) {
               });
           });
 
-          const text = directParas
-            .map(function () {
-              return cleanText($, this);
+          const text = [...introParas, ...closingParas]
+            .map(function (el) {
+              return cleanText($, el);
             })
-            .get()
             .join("\n\n");
-          const html = directParas
-            .map(function () {
-              return cleanHtml($, this);
+          const html = introParas
+            .map(function (el) {
+              return `<p>${cleanHtml($, el)}</p>`;
             })
-            .get()
-            .map((h) => `<p>${h}</p>`)
+            .join("\n");
+          const closingHtml = closingParas
+            .map(function (el) {
+              return `<p>${cleanHtml($, el)}</p>`;
+            })
             .join("\n");
 
           paragraphs.push({
             number: paraNum,
             text,
             html,
+            closingHtml: closingHtml || undefined,
             subpoints,
           });
         });

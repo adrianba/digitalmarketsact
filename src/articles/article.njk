@@ -103,6 +103,13 @@ eleventyComputed:
             {% endfor %}
           </div>
           {% endif %}
+
+          {# Closing text (appears after sub-points in some paragraphs) #}
+          {% if para.closingHtml %}
+          <div class="font-body text-on-surface leading-relaxed mt-3">
+            {{ para.closingHtml | safe }}
+          </div>
+          {% endif %}
         </div>
 
         {# Inline recitals for this paragraph #}
