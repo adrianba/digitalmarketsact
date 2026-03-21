@@ -40,12 +40,20 @@
     ],
     "complianceReports": [
       { "label": "Compliance report (2026)", "url": "https://assets.aboutamazon.com/b0/54/a0a5212848ab9ff4b3e452be21aa/2026-compliance-report.pdf" },
+      { "label": "Compliance report (2026) — Annex 1", "url": "https://assets.aboutamazon.com/81/de/e7c5d2d04d3ba86e2c65219654c9/2026-compliance-report-annex-1.pdf" },
+      { "label": "Compliance report (2026) — Annex 2", "url": "https://assets.aboutamazon.com/1a/7f/e35162ec4f9d88921e3499709f5e/2026-compliance-report-annex-2.pdf" },
       { "label": "Compliance report (2025)", "url": "https://assets.aboutamazon.com/4a/61/7e24a2cb48e785ba58c428cf32a7/amazon-compliance-report-2025.pdf" },
+      { "label": "Compliance report (2025) — Annex 1", "url": "https://assets.aboutamazon.com/50/7b/92fca0af4323afd758ebd636b4db/amazon-compliance-report-2025-annex-1.pdf" },
+      { "label": "Compliance report (2025) — Annex 2", "url": "https://assets.aboutamazon.com/7c/a8/bdf8ffcc46e987ad8e5dcfe7146b/amazon-compliance-report-2025-annex-2.pdf" },
       { "label": "Compliance report (2024)", "url": "https://assets.aboutamazon.com/a8/33/e931dab5407bae69a8f21b31d2ad/amazon-dma-compliance-report.pdf" }
     ],
     "profilingReports": [
       { "label": "Consumer profiling report (2026)", "url": "https://assets.aboutamazon.com/21/bb/6da7410948808d037d73ef5f4b7f/2026-profiling-report.pdf" },
-      { "label": "Consumer profiling report (2025)", "url": "https://assets.aboutamazon.com/9c/04/6d809ce7489c86e25d5a8755e68b/amazon-profiling-report-2025.pdf" }
+      { "label": "Consumer profiling report (2026) — Annex 1", "url": "https://assets.aboutamazon.com/a9/31/f219bcb24450adaaf39d2d96e0ee/2026-profiling-report-annex-1.pdf" },
+      { "label": "Consumer profiling report (2026) — Annex 2", "url": "https://assets.aboutamazon.com/ad/a8/8976f31c4777a8c100ff1933123b/2026-profiling-report-annex-2.pdf" },
+      { "label": "Consumer profiling report (2025)", "url": "https://assets.aboutamazon.com/9c/04/6d809ce7489c86e25d5a8755e68b/amazon-profiling-report-2025.pdf" },
+      { "label": "Consumer profiling report (2025) — Annex 1", "url": "https://assets.aboutamazon.com/fd/99/be739fe6492894f5f22af34a6ab6/amazon-profiling-report-2025-annex-1.pdf" },
+      { "label": "Consumer profiling report (2025) — Annex 2", "url": "https://assets.aboutamazon.com/64/ae/fd140e7e4db9931f27a100ff4071/amazon-profiling-report-2025-annex-2.pdf" }
     ]
   },
   {
