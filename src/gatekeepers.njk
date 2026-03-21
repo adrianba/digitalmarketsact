@@ -5,26 +5,6 @@ permalink: /g/
 ---
 
 <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
-  {# Header #}
-  <div class="mb-10">
-    <p class="article-tag mb-2">Digital Markets Act</p>
-    <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Designated Gatekeepers</h1>
-    <p class="font-body text-lg text-on-surface-variant max-w-2xl">
-      The European Commission has designated {{ gatekeepers.length }} gatekeepers under the DMA, covering 23 core platform services.
-    </p>
-  </div>
-
-  {# Designation overview image #}
-  <div class="mb-12">
-    <img src="https://digital-markets-act.ec.europa.eu/sites/default/files/styles/embed_large_2x/public/2025-04/DMA_designations_2025update.jpg?itok=KrJJX3is"
-         alt="DMA Designations 2025 Update"
-         class="rounded-xl shadow-ambient max-w-2xl w-full">
-    <p class="font-label text-xs text-on-surface-variant mt-2">
-      Source: <a href="https://digital-markets-act.ec.europa.eu/gatekeepers_en" class="recital-ref" target="_blank" rel="noopener">European Commission — DMA Gatekeepers</a>
-    </p>
-  </div>
-
-  {# Gatekeeper list #}
   <div class="flex flex-col lg:flex-row gap-10">
     {# Left sidebar — quick nav #}
     <aside class="hidden lg:block w-48 shrink-0">
@@ -43,6 +23,24 @@ permalink: /g/
 
     {# Main content #}
     <div class="flex-1 min-w-0 max-w-3xl">
+      {# Header #}
+      <div class="mb-10">
+        <p class="article-tag mb-2">Digital Markets Act</p>
+        <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Designated Gatekeepers</h1>
+        <p class="font-body text-lg text-on-surface-variant max-w-2xl">
+          The European Commission has designated {{ gatekeepers.length }} gatekeepers under the DMA, covering 23 core platform services.
+        </p>
+      </div>
+
+      {# Designation overview image #}
+      <div class="mb-12">
+        <img src="https://digital-markets-act.ec.europa.eu/sites/default/files/styles/embed_large_2x/public/2025-04/DMA_designations_2025update.jpg?itok=KrJJX3is"
+             alt="DMA Designations 2025 Update"
+             class="rounded-xl shadow-ambient max-w-2xl w-full">
+        <p class="font-label text-xs text-on-surface-variant mt-2">
+          Source: <a href="https://digital-markets-act.ec.europa.eu/gatekeepers_en" class="recital-ref" target="_blank" rel="noopener">European Commission — DMA Gatekeepers</a>
+        </p>
+      </div>
       {% for gk in gatekeepers %}
       <section id="{{ gk.slug }}" class="mb-12 scroll-mt-6">
         <div class="bg-surface-container-lowest rounded-xl p-6">

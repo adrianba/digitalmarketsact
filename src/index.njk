@@ -4,27 +4,6 @@ pageTitle: Articles
 ---
 
 <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
-  {# Hero section #}
-  <div class="mb-12">
-    <p class="article-tag mb-2">Regulation (EU) 2022/1925</p>
-    <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Digital Markets Act</h1>
-    <p class="font-body text-lg text-on-surface-variant max-w-2xl">
-      Navigate the full text of the Digital Markets Act — on contestable and fair markets in the digital sector.
-    </p>
-  </div>
-
-  {# About the DMA #}
-  <div class="mb-12 max-w-2xl">
-    <p class="font-body text-base text-on-surface leading-relaxed mb-4">
-      The Digital Markets Act (DMA) is an EU regulation that establishes rules to ensure contestability and fairness in digital markets. It identifies large digital platforms as "gatekeepers" and imposes obligations to prevent them from abusing their market power, ensuring a level playing field for businesses and greater choice for consumers across the European Union.
-    </p>
-    <div class="flex gap-4 font-label text-sm">
-      <a href="https://digital-markets-act.ec.europa.eu/index_en" class="recital-ref" target="_blank" rel="noopener">EU DMA Home</a>
-      <a href="https://en.wikipedia.org/wiki/Digital_Markets_Act" class="recital-ref" target="_blank" rel="noopener">Wikipedia</a>
-      <a href="/g/" class="recital-ref">Designated Gatekeepers</a>
-    </div>
-  </div>
-
   <div class="flex flex-col lg:flex-row gap-10">
     {# Left sidebar — chapter quick nav #}
     <aside class="hidden lg:block w-56 shrink-0">
@@ -42,8 +21,30 @@ pageTitle: Articles
       </div>
     </aside>
 
-    {# Main content — articles grouped by chapter #}
+    {# Main content #}
     <div class="flex-1 min-w-0">
+      {# Hero section #}
+      <div class="mb-12">
+        <p class="article-tag mb-2">Regulation (EU) 2022/1925</p>
+        <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Digital Markets Act</h1>
+        <p class="font-body text-lg text-on-surface-variant max-w-2xl">
+          Navigate the full text of the Digital Markets Act — on contestable and fair markets in the digital sector.
+        </p>
+      </div>
+
+      {# About the DMA #}
+      <div class="mb-12 max-w-2xl">
+        <p class="font-body text-base text-on-surface leading-relaxed mb-4">
+          The Digital Markets Act (DMA) is an EU regulation that establishes rules to ensure contestability and fairness in digital markets. It identifies large digital platforms as "gatekeepers" and imposes obligations to prevent them from abusing their market power, ensuring a level playing field for businesses and greater choice for consumers across the European Union.
+        </p>
+        <div class="flex gap-4 font-label text-sm">
+          <a href="https://digital-markets-act.ec.europa.eu/index_en" class="recital-ref" target="_blank" rel="noopener">EU DMA Home</a>
+          <a href="https://en.wikipedia.org/wiki/Digital_Markets_Act" class="recital-ref" target="_blank" rel="noopener">Wikipedia</a>
+          <a href="/g/" class="recital-ref">Designated Gatekeepers</a>
+        </div>
+      </div>
+
+      {# Articles grouped by chapter #}
       {% for chapter in chapters %}
       <section id="chapter-{{ chapter.number }}" class="mb-14">
         {# Chapter heading #}

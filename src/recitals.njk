@@ -5,15 +5,6 @@ permalink: /r/
 ---
 
 <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
-  {# Header #}
-  <div class="mb-10">
-    <p class="article-tag mb-2">Regulation (EU) 2022/1925</p>
-    <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Recitals</h1>
-    <p class="font-body text-lg text-on-surface-variant max-w-2xl">
-      The {{ recitals.length }} recitals of the Digital Markets Act provide the legislative reasoning behind the provisions.
-    </p>
-  </div>
-
   <div class="flex flex-col lg:flex-row gap-10">
     {# Left sidebar — quick jump #}
     <aside class="hidden lg:block w-48 shrink-0">
@@ -32,8 +23,16 @@ permalink: /r/
       </div>
     </aside>
 
-    {# Main content — recitals list #}
+    {# Main content #}
     <div class="flex-1 min-w-0 max-w-3xl">
+      {# Header #}
+      <div class="mb-10">
+        <p class="article-tag mb-2">Regulation (EU) 2022/1925</p>
+        <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Recitals</h1>
+        <p class="font-body text-lg text-on-surface-variant max-w-2xl">
+          The {{ recitals.length }} recitals of the Digital Markets Act provide the legislative reasoning behind the provisions.
+        </p>
+      </div>
       {% for rec in recitals %}
       <div id="r{{ rec.number }}" class="mb-8 scroll-mt-6">
         <div class="bg-surface-container-lowest rounded-xl p-6">
