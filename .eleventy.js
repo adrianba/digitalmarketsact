@@ -8,7 +8,7 @@ module.exports = function (eleventyConfig) {
     "Regulation (EU) 2016/679": "32016R0679",
     "Regulation (EU) 2018/1725": "32018R1725",
     "Regulation (EU) 2019/1150": "32019R1150",
-    "Regulation (EU) 2022/1925": "32022R1925",
+    // "Regulation (EU) 2022/1925" omitted — that's the DMA itself
     "Regulation (EU) No 182/2011": "32011R0182",
     "Regulation (EC) No 1/2003": "32003R0001",
     "Regulation (EC) No 139/2004": "32004R0139",
