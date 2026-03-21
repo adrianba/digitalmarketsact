@@ -28,10 +28,19 @@ module.exports = function (eleventyConfig) {
     if (!(this.page.outputPath || "").endsWith(".html")) return content;
     for (const [name, celex] of Object.entries(defined_celex)) {
       const url = "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:" + celex;
-      // Match the name with optional &nbsp; for spaces, but not already inside a link
       const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/ /g, "(?:\\s|&nbsp;)");
-      const re = new RegExp("(?<!<a[^>]*>)(" + escaped + ")(?![^<]*<\\/a>)", "g");
-      content = content.replace(re, '<a href="' + url + '" class="recital-ref" target="_blank" rel="noopener">$1</a>');
+      // Track <a> nesting to avoid linking inside existing links
+      var inLink = 0;
+      var re = new RegExp("(<a\\b[^>]*>|<\\/a>)|(" + escaped + ")", "gi");
+      content = content.replace(re, function (match, tag, text) {
+        if (tag) {
+          if (tag.startsWith("</")) inLink = Math.max(0, inLink - 1);
+          else inLink++;
+          return match;
+        }
+        if (inLink > 0) return match;
+        return '<a href="' + url + '" class="recital-ref" target="_blank" rel="noopener">' + text + "</a>";
+      });
     }
     return content;
   });
