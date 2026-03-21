@@ -37,17 +37,22 @@ eleventyComputed:
           <p class="font-headline font-semibold text-sm text-on-surface capitalize">{{ chapter.title | lower }}</p>
         </a>
         {% endif %}
-        <nav class="flex flex-col gap-1 sidebar-scroll max-h-[70vh] overflow-y-auto">
+        <nav id="sidebar-nav" class="flex flex-col gap-1 sidebar-scroll max-h-[70vh] overflow-y-auto">
           {% set sameChapterArticles = articles | articlesInChapter(article.chapter) %}
           {% for art in sameChapterArticles %}
           <a href="/articles/{{ art.number }}/"
              class="font-label text-sm py-1.5 px-2 rounded-lg transition-colors
                     {% if art.number == article.number %}bg-primary-container text-on-primary-container font-medium
-                    {% else %}text-on-surface-variant hover:text-primary hover:bg-surface-container{% endif %}">
+                    {% else %}text-on-surface-variant hover:text-primary hover:bg-surface-container{% endif %}"
+             {% if art.number == article.number %}data-current{% endif %}>
             Art. {{ art.number }}{% if art.title %} <span class="text-xs opacity-75">{{ art.title }}</span>{% endif %}
           </a>
           {% endfor %}
         </nav>
+        <script>
+          var c = document.querySelector('#sidebar-nav [data-current]');
+          if (c) c.scrollIntoView({ block: 'center' });
+        </script>
       </div>
     </aside>
 
