@@ -157,12 +157,24 @@
     "designated": "2023-09-06",
     "services": [{ "name": "TikTok", "type": "Online social networking service" }],
     "complianceReports": [
-      { "label": "Compliance report (2025)", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/Bytedance DMA Compliance Report Public Overview_2025.pdf" },
-      { "label": "Compliance report (2024)", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/Bytedance DMA Compliance Report Public Overview.pdf" }
+      {
+        "label": "Compliance report (2025)",
+        "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/Bytedance DMA Compliance Report Public Overview_2025.pdf"
+      },
+      {
+        "label": "Compliance report (2024)",
+        "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/Bytedance DMA Compliance Report Public Overview.pdf"
+      }
     ],
     "profilingReports": [
-      { "label": "Consumer profiling report (2025)", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/ByteDance 2025 DMA Article 15 Public Report.pdf" },
-      { "label": "Consumer profiling report (2024)", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/ByteDance Consumer Profiling Techniques Public Overview.pdf" }
+      {
+        "label": "Consumer profiling report (2025)",
+        "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/ByteDance 2025 DMA Article 15 Public Report.pdf"
+      },
+      {
+        "label": "Consumer profiling report (2024)",
+        "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/ByteDance Consumer Profiling Techniques Public Overview.pdf"
+      }
     ]
   },
   {
@@ -178,10 +190,32 @@
       { "name": "Meta Ads", "type": "Online advertising service" }
     ],
     "complianceReports": [
-      { "label": "Regulatory Transparency Reports", "url": "https://transparency.meta.com/reports/regulatory-transparency-reports/" }
+      {
+        "label": "2026",
+        "url": "https://scontent-sea1-1.xx.fbcdn.net/m1/v/t0.84174-6/An-0OEVkTdLeIMko3MaRWyHBJqaBCKPGy_vXexYlF8y8Dy8J7jvmz7tP3tXlbwcPcJaFQx1THfUpJFrsTOS2da851YZdwFdfQhwD6JnLSgMFeyv2l-7ZvdgVmxdXQfEQ_yxoS7Q?_nc_gid=a8fpcnPKAR0BvmH7iope1g&_nc_oc=AdrbBEf2WST-dxLUruc7AwEu3vRDpE26HdRfjZRfzTrhyOaSMbpNvkTilLGq7JmSyNo&ccb=10-5&oh=00_AfzTQQi4aGTqGnFaSE8BZMpF7feGHUgEqdZUM_9TmcT2fw&oe=69C0B80D&_nc_sid=68f2c3"
+      },
+      {
+        "label": "2025",
+        "url": "https://scontent-sea1-1.xx.fbcdn.net/m1/v/t0.84174-6/An-lNjrN3cjMK7CMKWTlne9HjQXEUNdnLe0C4mgsuYJzTWIZg7Rtyk09DMWAxlvfe-Lep8oxOXBTOY-ARB5hqpeLqW0rF2i_x7mGT6-jJjh_zlDemFxE1x0Z2RiXutM8DgkjQvM?_nc_gid=a8fpcnPKAR0BvmH7iope1g&_nc_oc=Ado1o_L9Hf7qq6VotAytjD9a9tOsPIVVHYr5ZAOnnTeHfpwsJ9nDB9fLfMPzc79lo4s&ccb=10-5&oh=00_AfyDvmULvw6KZL4je_1jus7VotKEe6QtDiBLPkz_b4DQGw&oe=69C0A1CD&_nc_sid=68f2c3"
+      },
+      {
+        "label": "2024",
+        "url": "https://scontent-sea1-1.xx.fbcdn.net/m1/v/t0.84174-6/An8DWb-KmzXMoYkTzJj0aGVZMzsLYshCh4rTSlAl6GuQb27B0zIi64BiLN7UMDA0P6VjOj78P6waf0gDCT9fuVMdcWmFjJ45nzvHErvPaSj-nIDybe3U4DbLoAjVFylG4hZPRyM?_nc_gid=a8fpcnPKAR0BvmH7iope1g&_nc_oc=Adru-w9Q-M0a4gJTpsEwfMfPBmqWkgyYfrZJEpu4NDBhdyg5EuDUmWZ5keDpYS6xiMw&ccb=10-5&oh=00_AfytJObP1J_B1O5n1PVqpLdZTlSjQQf0floA4chYLvxsRg&oe=69C095B7&_nc_sid=68f2c3"
+      }
     ],
     "profilingReports": [
-      { "label": "Regulatory Transparency Reports", "url": "https://transparency.meta.com/reports/regulatory-transparency-reports/" }
+      {
+        "label": "2026",
+        "url": "https://scontent-sea1-1.xx.fbcdn.net/m1/v/t0.84174-6/An-9hK3ZMNr4FimWWhhZyDsEhYtns6mAiPJmVqE0vZMDuOs-PDkJiAvbwljtm-8TIsvgjlcJgYiQ6iuOOmblgW2HiMUqLdWW1wKDzDlFWah5WKxcCshcQLw95aaClJxiMX9TOz0?_nc_gid=a8fpcnPKAR0BvmH7iope1g&_nc_oc=AdppJaQwBdZzizDNH4xj-mLfmV1PrKP2Ezk3OrkmgUFs1VYuBquUgpEtgaJry8RzcS4&ccb=10-5&oh=00_AfyrNqLrYIi0OxnDJJDBMMpMf5thuu0LL9WZcOSoSPtRog&oe=69C0B93E&_nc_sid=68f2c3"
+      },
+      {
+        "label": "2025",
+        "url": "https://scontent-sea1-1.xx.fbcdn.net/m1/v/t0.84174-6/An-uD3jFneGJVqvny-WFMyxsDyBvobcFVZVLBbX8KKgN9Zw44WTP0LM1ovkcMC0bGaedq4AAaP4p1UtwQwV-NZthRHSghO8lWBcylPd_x5zPckMs5PrjvyHiZ7-IZE661qHos00?_nc_gid=a8fpcnPKAR0BvmH7iope1g&_nc_oc=Adp6JKrp4zrrTMGByogO5jT5DjBoynNqnTvZGsqWLTcbSJ81DrsVSVqToNrB_02tm24&ccb=10-5&oh=00_AfxXdpaamG7McdVjagsHSveHL2lPLmvwsIoWaubVyIecGw&oe=69C0AE02&_nc_sid=68f2c3"
+      },
+      {
+        "label": "2024",
+        "url": "https://scontent-sea1-1.xx.fbcdn.net/m1/v/t0.84174-6/An-X9I47ywi24IA1vCJerBY3Nm0q7A7vddgWCYuTQ_UNzsBiU2OSNEpBz8RmQIgqO8q_E-7oNcAfFmtIsdYw7sYnFxBH-LYusDPfCNzjZ_UssMMIjm743AM9jJmOdf73yk0hAAI?_nc_gid=a8fpcnPKAR0BvmH7iope1g&_nc_oc=AdqlH0qZdEr3i9uWjNGM9iItFUZSRaj_8aZlFP3F9PPiAFo3HXOURH43Y6ShJ4yYwdE&ccb=10-5&oh=00_AfzzxO5Ix-awsxFe7_WmKsyFgTJwDzqH568JQ9aOVHhtlg&oe=69C0B34A&_nc_sid=68f2c3"
+      }
     ]
   },
   {
@@ -193,17 +227,22 @@
       { "name": "LinkedIn", "type": "Online social networking service" }
     ],
     "complianceReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+      { "label": "Compliance report (2026)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report.pdf" },
+      { "label": "Compliance report (2026) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%E2%80%93Windows_Section_2_Annex.pdf" },
+      { "label": "Compliance report (2026) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%E2%80%93LinkedIn_Section_2_Annex.pdf" },
+      { "label": "Compliance report (2024)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%209%20-%20Non-Confidential%20Version.pdf" },
+      { "label": "Compliance report (2024) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2010%20-%20Windows%20(Non-Confidential%20Version).pdf" },
+      { "label": "Compliance report (2024) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2011%20-%20LinkedIn%20(Non-Confidential%20Version).pdf" }
     ],
     "profilingReports": [
-      {
-        "label": "Consumer profiling report (latest)",
-        "url": "https://www.microsoft.com/en-us/legal/compliance/dmacompliance"
-      },
-      {
-        "label": "Consumer profiling report (previous)",
-        "url": "https://www.microsoft.com/en-us/legal/compliance/dmacomplianceresourcesandreports"
-      }
+      { "label": "Consumer profiling report (2026)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report.pdf" },
+      { "label": "Consumer profiling report (2026) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93Windows_Section_2_Annex.pdf" },
+      { "label": "Consumer profiling report (2026) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93LinkedIn_Section_2_Annex.pdf" },
+      { "label": "Consumer profiling report (2024)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20(Non-Confidential).pdf" },
+      { "label": "Consumer profiling report (2024) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%201%20-%20Windows%20(Non-Confidential).pdf" },
+      { "label": "Consumer profiling report (2024) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%202%20-%20LinkedIn%20(Non-Confidential).pdf" },
+      { "label": "Consumer profiling report (2024) — Windows Audit", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%203%20-%20Audit%20Report%20Windows%20(Non-Confidential).pdf" },
+      { "label": "Consumer profiling report (2024) — LinkedIn Audit", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%204%20-%20Audit%20Report%20LinkedIn%20(Non-Confidential).pdf" }
     ]
   }
 ]
