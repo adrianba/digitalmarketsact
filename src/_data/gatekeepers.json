@@ -4,14 +4,38 @@
     "slug": "googl",
     "designated": "2023-09-06",
     "services": [
-      { "name": "Google Search", "type": "Online search engine" },
-      { "name": "Google Maps", "type": "Online intermediation service" },
-      { "name": "Google Play", "type": "Online intermediation service" },
-      { "name": "Google Shopping", "type": "Online intermediation service" },
-      { "name": "Google Ads", "type": "Online advertising service" },
-      { "name": "YouTube", "type": "Video-sharing platform service" },
-      { "name": "Android", "type": "Operating system" },
-      { "name": "Chrome", "type": "Web browser" }
+      {
+        "name": "Google Search",
+        "type": "Online search engine"
+      },
+      {
+        "name": "Google Maps",
+        "type": "Online intermediation service"
+      },
+      {
+        "name": "Google Play",
+        "type": "Online intermediation service"
+      },
+      {
+        "name": "Google Shopping",
+        "type": "Online intermediation service"
+      },
+      {
+        "name": "Google Ads",
+        "type": "Online advertising service"
+      },
+      {
+        "name": "YouTube",
+        "type": "Video-sharing platform service"
+      },
+      {
+        "name": "Android",
+        "type": "Operating system"
+      },
+      {
+        "name": "Chrome",
+        "type": "Web browser"
+      }
     ],
     "complianceReports": [
       {
@@ -35,8 +59,14 @@
     "slug": "amzn",
     "designated": "2023-09-06",
     "services": [
-      { "name": "Amazon Marketplace", "type": "Online intermediation service" },
-      { "name": "Amazon Ads", "type": "Online advertising service" }
+      {
+        "name": "Amazon Marketplace",
+        "type": "Online intermediation service"
+      },
+      {
+        "name": "Amazon Ads",
+        "type": "Online advertising service"
+      }
     ],
     "complianceReports": [
       {
@@ -101,14 +131,32 @@
     "designated": "2023-09-06",
     "undesignatedNote": "iPadOS designated 2024-04-29",
     "services": [
-      { "name": "App Store", "type": "Online intermediation service" },
-      { "name": "Safari", "type": "Web browser" },
-      { "name": "iOS", "type": "Operating system" },
-      { "name": "iPadOS", "type": "Operating system" }
+      {
+        "name": "App Store",
+        "type": "Online intermediation service"
+      },
+      {
+        "name": "Safari",
+        "type": "Web browser"
+      },
+      {
+        "name": "iOS",
+        "type": "Operating system"
+      },
+      {
+        "name": "iPadOS",
+        "type": "Operating system"
+      }
     ],
     "complianceReports": [
-      { "label": "Mar 2026", "url": "https://www.apple.com/legal/dma/NCS-March-2026.pdf" },
-      { "label": "Mar 2025", "url": "https://www.apple.com/legal/dma/NCS-March-2025.pdf" },
+      {
+        "label": "Mar 2026",
+        "url": "https://www.apple.com/legal/dma/NCS-March-2026.pdf"
+      },
+      {
+        "label": "Mar 2025",
+        "url": "https://www.apple.com/legal/dma/NCS-March-2025.pdf"
+      },
       {
         "label": "Nov 2024",
         "url": "https://ec.europa.eu/competition/digital_markets_act/cases/202611/DMA_100123_206.pdf"
@@ -129,7 +177,12 @@
     "name": "Booking Holdings Inc.",
     "slug": "bkng",
     "designated": "2024-05-13",
-    "services": [{ "name": "Booking.com", "type": "Online intermediation service" }],
+    "services": [
+      {
+        "name": "Booking.com",
+        "type": "Online intermediation service"
+      }
+    ],
     "complianceReports": [
       {
         "label": "Nov 2025",
@@ -155,14 +208,31 @@
     "name": "ByteDance Ltd.",
     "slug": "bdnce",
     "designated": "2023-09-06",
-    "services": [{ "name": "TikTok", "type": "Online social networking service" }],
+    "services": [
+      {
+        "name": "TikTok",
+        "type": "Online social networking service"
+      }
+    ],
     "complianceReports": [
-      { "label": "2025", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/Bytedance DMA Compliance Report Public Overview_2025.pdf" },
-      { "label": "2024", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/Bytedance DMA Compliance Report Public Overview.pdf" }
+      {
+        "label": "2025",
+        "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/Bytedance DMA Compliance Report Public Overview_2025.pdf"
+      },
+      {
+        "label": "2024",
+        "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/Bytedance DMA Compliance Report Public Overview.pdf"
+      }
     ],
     "profilingReports": [
-      { "label": "2025", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/ByteDance 2025 DMA Article 15 Public Report.pdf" },
-      { "label": "2024", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/ByteDance Consumer Profiling Techniques Public Overview.pdf" }
+      {
+        "label": "2025",
+        "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/ByteDance 2025 DMA Article 15 Public Report.pdf"
+      },
+      {
+        "label": "2024",
+        "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/ByteDance Consumer Profiling Techniques Public Overview.pdf"
+      }
     ]
   },
   {
@@ -171,11 +241,26 @@
     "designated": "2023-09-06",
     "undesignatedNote": "Facebook Marketplace undesignated 2025-04-23",
     "services": [
-      { "name": "Facebook", "type": "Online social networking service" },
-      { "name": "Instagram", "type": "Online social networking service" },
-      { "name": "WhatsApp", "type": "N-IICS" },
-      { "name": "Messenger", "type": "N-IICS" },
-      { "name": "Meta Ads", "type": "Online advertising service" }
+      {
+        "name": "Facebook",
+        "type": "Online social networking service"
+      },
+      {
+        "name": "Instagram",
+        "type": "Online social networking service"
+      },
+      {
+        "name": "WhatsApp",
+        "type": "N-IICS"
+      },
+      {
+        "name": "Messenger",
+        "type": "N-IICS"
+      },
+      {
+        "name": "Meta Ads",
+        "type": "Online advertising service"
+      }
     ],
     "complianceReports": [
       {
@@ -211,32 +296,98 @@
     "slug": "msft",
     "designated": "2023-09-06",
     "services": [
-      { "name": "Windows", "type": "Operating system" },
-      { "name": "LinkedIn", "type": "Online social networking service" }
+      {
+        "name": "Windows",
+        "type": "Operating system"
+      },
+      {
+        "name": "LinkedIn",
+        "type": "Online social networking service"
+      }
     ],
     "complianceReports": [
-      { "label": "2026", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report.pdf" },
-      { "label": "2026 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%E2%80%93Windows_Section_2_Annex.pdf" },
-      { "label": "2026 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%e2%80%93LinkedIn_Section_2_Annex.pdf" },
-      { "label": "2025", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft%20DMA%20Compliance%20Report.pdf" },
-      { "label": "2025 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report_Windows_Section_2_Annex.pdf" },
-      { "label": "2025 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report_LinkedIn_Section_2_Annex.pdf" },
-      { "label": "2024", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%209%20-%20Non-Confidential%20Version.pdf" },
-      { "label": "2024 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2010%20-%20Windows%20(Non-Confidential%20Version).pdf" },
-      { "label": "2024 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2011%20-%20LinkedIn%20(Non-Confidential%20Version).pdf" }
+      {
+        "label": "2026",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report.pdf"
+      },
+      {
+        "label": "2026 — Windows Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%E2%80%93Windows_Section_2_Annex.pdf"
+      },
+      {
+        "label": "2026 — LinkedIn Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%e2%80%93LinkedIn_Section_2_Annex.pdf"
+      },
+      {
+        "label": "2025",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft%20DMA%20Compliance%20Report.pdf"
+      },
+      {
+        "label": "2025 — Windows Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report_Windows_Section_2_Annex.pdf"
+      },
+      {
+        "label": "2025 — LinkedIn Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report_LinkedIn_Section_2_Annex.pdf"
+      },
+      {
+        "label": "2024",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%209%20-%20Non-Confidential%20Version_v1.pdf"
+      },
+      {
+        "label": "2024 — Windows Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2010%20-%20Windows%20(Non-Confidential%20Version)_v1.pdf"
+      },
+      {
+        "label": "2024 — LinkedIn Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2011%20-%20LinkedIn%20(Non-Confidential%20Version)_v1.pdf"
+      }
     ],
     "profilingReports": [
-      { "label": "2026", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report.pdf" },
-      { "label": "2026 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93Windows_Section_2_Annex.pdf" },
-      { "label": "2026 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93LinkedIn_Section_2_Annex.pdf" },
-      { "label": "2025", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft%20DMA%20Consumer%20Profiling%20Report.pdf" },
-      { "label": "2025 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report_Windows_Section_2_Annex.pdf" },
-      { "label": "2025 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%20_LinkedIn_Section_2_Annex.pdf" },
-      { "label": "2024", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20(Non-Confidential).pdf" },
-      { "label": "2024 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%201%20-%20Windows%20(Non-Confidential).pdf" },
-      { "label": "2024 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%202%20-%20LinkedIn%20(Non-Confidential).pdf" },
-      { "label": "2024 — Windows Audit", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%203%20-%20Audit%20Report%20Windows%20(Non-Confidential).pdf" },
-      { "label": "2024 — LinkedIn Audit", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%204%20-%20Audit%20Report%20LinkedIn%20(Non-Confidential).pdf" }
+      {
+        "label": "2026",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report.pdf"
+      },
+      {
+        "label": "2026 — Windows Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93Windows_Section_2_Annex.pdf"
+      },
+      {
+        "label": "2026 — LinkedIn Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93LinkedIn_Section_2_Annex.pdf"
+      },
+      {
+        "label": "2025",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft%20DMA%20Consumer%20Profiling%20Report.pdf"
+      },
+      {
+        "label": "2025 — Windows Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report_Windows_Section_2_Annex.pdf"
+      },
+      {
+        "label": "2025 — LinkedIn Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%20_LinkedIn_Section_2_Annex.pdf"
+      },
+      {
+        "label": "2024",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20(Non-Confidential)_v1.pdf"
+      },
+      {
+        "label": "2024 — Windows Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%201%20-%20Windows%20(Non-Confidential)_v1.pdf"
+      },
+      {
+        "label": "2024 — LinkedIn Annex",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%202%20-%20LinkedIn%20(Non-Confidential)_v1.pdf"
+      },
+      {
+        "label": "2024 — Windows Audit",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%203%20-%20Audit%20Report%20Windows%20(Non-Confidential)_v1.pdf"
+      },
+      {
+        "label": "2024 — LinkedIn Audit",
+        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%204%20-%20Audit%20Report%20LinkedIn%20(Non-Confidential)_v1.pdf"
+      }
     ]
   }
 ]
