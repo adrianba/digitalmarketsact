@@ -6,7 +6,8 @@
   "scripts": {
     "build:css": "npx @tailwindcss/cli -i src/css/main.css -o _site/css/style.css --minify",
     "build:11ty": "npx @11ty/eleventy",
-    "build": "npm run build:11ty && npm run build:css",
+    "build:js": "npx terser _site/js/commands.js -o _site/js/commands.js -c -m",
+    "build": "npm run build:11ty && npm run build:css && npm run build:js",
     "dev:css": "npx @tailwindcss/cli -i src/css/main.css -o _site/css/style.css --watch",
     "dev:11ty": "npx @11ty/eleventy --serve",
     "dev": "concurrently -n 11ty,css -c blue,magenta \"npm run dev:11ty\" \"npm run dev:css\"",
@@ -23,6 +24,7 @@
     "cheerio": "^1.2.0",
     "concurrently": "^9.2.1",
     "postcss": "^8.5.8",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.2",
+    "terser": "^5.46.1"
   }
 }
