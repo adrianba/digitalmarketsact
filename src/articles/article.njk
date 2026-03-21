@@ -32,8 +32,10 @@ eleventyComputed:
     <aside class="hidden lg:block w-52 shrink-0">
       <div class="sticky top-6">
         {% if chapter %}
-        <p class="article-tag mb-1">Chapter {{ chapter.roman }}</p>
-        <p class="font-headline font-semibold text-sm text-on-surface mb-4 capitalize">{{ chapter.title | lower }}</p>
+        <a href="/#chapter-{{ chapter.number }}" class="block mb-4 hover:text-primary transition-colors">
+          <p class="article-tag mb-1">Chapter {{ chapter.roman }}</p>
+          <p class="font-headline font-semibold text-sm text-on-surface capitalize">{{ chapter.title | lower }}</p>
+        </a>
         {% endif %}
         <nav class="flex flex-col gap-1 sidebar-scroll max-h-[70vh] overflow-y-auto">
           {% set sameChapterArticles = articles | articlesInChapter(article.chapter) %}
