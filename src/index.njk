@@ -1,0 +1,81 @@
+---
+layout: base.njk
+pageTitle: Articles
+---
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+  {# Hero section #}
+  <div class="mb-12">
+    <p class="article-tag mb-2">Regulation (EU) 2022/1925</p>
+    <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Digital Markets Act</h1>
+    <p class="font-body text-lg text-on-surface-variant max-w-2xl">
+      Navigate the full text of the Digital Markets Act — on contestable and fair markets in the digital sector.
+    </p>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-10">
+    {# Left sidebar — chapter quick nav #}
+    <aside class="hidden lg:block w-56 shrink-0">
+      <div class="sticky top-6">
+        <p class="article-tag mb-4">Chapters</p>
+        <nav class="flex flex-col gap-2">
+          {% for chapter in chapters %}
+          <a href="#chapter-{{ chapter.number }}"
+             class="font-label text-sm text-on-surface-variant hover:text-primary transition-colors py-1">
+            <span class="text-primary font-semibold">{{ chapter.roman }}.</span>
+            <span class="capitalize">{{ chapter.title | lower }}</span>
+          </a>
+          {% endfor %}
+        </nav>
+      </div>
+    </aside>
+
+    {# Main content — articles grouped by chapter #}
+    <div class="flex-1 min-w-0">
+      {% for chapter in chapters %}
+      <section id="chapter-{{ chapter.number }}" class="mb-14">
+        {# Chapter heading #}
+        <div class="mb-6">
+          <p class="article-tag mb-1">Chapter {{ chapter.roman }}</p>
+          <h2 class="font-headline font-bold text-xl md:text-2xl text-on-surface capitalize">
+            {{ chapter.title | lower }}
+          </h2>
+        </div>
+
+        {# Article cards #}
+        <div class="grid gap-3">
+          {% set chapterArticles = articles | articlesInChapter(chapter.number) %}
+          {% for article in chapterArticles %}
+          <a href="/articles/{{ article.number }}/"
+             class="group block bg-surface-container-lowest rounded-xl p-5 hover:shadow-ambient transition-all">
+            <div class="flex items-start gap-4">
+              <div class="shrink-0 w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">
+                <span class="font-headline font-bold text-on-primary-container text-sm">{{ article.number }}</span>
+              </div>
+              <div class="min-w-0">
+                <p class="article-tag mb-1">Article {{ article.number }}</p>
+                {% if article.title %}
+                <h3 class="font-headline font-semibold text-base text-on-surface group-hover:text-primary transition-colors">
+                  {{ article.title }}
+                </h3>
+                {% endif %}
+                {% if article.paragraphs.length > 0 %}
+                <p class="text-sm text-on-surface-variant mt-1 font-label">
+                  {{ article.paragraphs.length }} paragraph{{ "s" if article.paragraphs.length != 1 }}
+                </p>
+                {% endif %}
+              </div>
+              <div class="shrink-0 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-primary">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </div>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+</div>

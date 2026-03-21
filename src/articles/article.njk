@@ -1,0 +1,162 @@
+---
+pagination:
+  data: articles
+  size: 1
+  alias: article
+permalink: "/articles/{{ article.number }}/"
+layout: base.njk
+eleventyComputed:
+  pageTitle: "Article {{ article.number }}{% if article.title %} — {{ article.title }}{% endif %}"
+---
+
+{% set chapter = chapters | findChapter(article.chapter) %}
+{% set prevArt = articles | prevArticle(article.number) %}
+{% set nextArt = articles | nextArticle(article.number) %}
+{% set articleRecitals = article.number | recitalsForArticle(recitalMap, recitals) %}
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-8">
+  {# Breadcrumb #}
+  <nav class="mb-8">
+    <ol class="flex items-center gap-2 font-label text-sm text-on-surface-variant">
+      <li><a href="/" class="hover:text-primary transition-colors">Articles</a></li>
+      <li class="text-outline-variant">/</li>
+      {% if chapter %}
+      <li><a href="/#chapter-{{ chapter.number }}" class="hover:text-primary transition-colors">Chapter {{ chapter.roman }}</a></li>
+      <li class="text-outline-variant">/</li>
+      {% endif %}
+      <li class="text-on-surface font-medium">Article {{ article.number }}</li>
+    </ol>
+  </nav>
+
+  <div class="flex flex-col lg:flex-row gap-10">
+    {# Left sidebar — chapter articles nav #}
+    <aside class="hidden lg:block w-52 shrink-0">
+      <div class="sticky top-6">
+        {% if chapter %}
+        <p class="article-tag mb-1">Chapter {{ chapter.roman }}</p>
+        <p class="font-headline font-semibold text-sm text-on-surface mb-4 capitalize">{{ chapter.title | lower }}</p>
+        {% endif %}
+        <nav class="flex flex-col gap-1 sidebar-scroll max-h-[70vh] overflow-y-auto">
+          {% set sameChapterArticles = articles | articlesInChapter(article.chapter) %}
+          {% for art in sameChapterArticles %}
+          <a href="/articles/{{ art.number }}/"
+             class="font-label text-sm py-1.5 px-2 rounded-lg transition-colors
+                    {% if art.number == article.number %}bg-primary-container text-on-primary-container font-medium
+                    {% else %}text-on-surface-variant hover:text-primary hover:bg-surface-container{% endif %}">
+            Art. {{ art.number }}{% if art.title %} <span class="text-xs opacity-75">{{ art.title }}</span>{% endif %}
+          </a>
+          {% endfor %}
+        </nav>
+      </div>
+    </aside>
+
+    {# Main content #}
+    <article class="flex-1 min-w-0 max-w-3xl">
+      {# Article header #}
+      <header class="mb-8">
+        <p class="article-tag mb-2">Article {{ article.number }}</p>
+        {% if article.title %}
+        <h1 class="font-headline font-bold text-2xl md:text-3xl text-on-surface">{{ article.title }}</h1>
+        {% endif %}
+      </header>
+
+      {# Article body #}
+      <div class="legal-text">
+        {% for para in article.paragraphs %}
+        <div class="mb-6" id="para-{{ para.number }}">
+          {# Paragraph text #}
+          {% if para.html %}
+          <div class="font-body text-on-surface leading-relaxed">
+            {{ para.html | safe }}
+          </div>
+          {% endif %}
+
+          {# Sub-points #}
+          {% if para.subpoints.length > 0 %}
+          <div class="mt-3 ml-6">
+            {% for sp in para.subpoints %}
+            <div class="mb-3 flex gap-3">
+              <span class="shrink-0 font-label text-sm text-primary font-medium w-8">{{ sp.label }}</span>
+              <div class="font-body text-on-surface leading-relaxed">
+                {% if sp.html %}{{ sp.html | safe }}{% endif %}
+                {% if sp.subpoints.length > 0 %}
+                <div class="mt-2 ml-4">
+                  {% for ssp in sp.subpoints %}
+                  <div class="mb-2 flex gap-3">
+                    <span class="shrink-0 font-label text-xs text-secondary font-medium w-8">{{ ssp.label }}</span>
+                    <div class="font-body text-on-surface text-base leading-relaxed">
+                      {% if ssp.html %}{{ ssp.html | safe }}{% endif %}
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      {# Prev / Next navigation #}
+      <nav class="mt-12 flex flex-col sm:flex-row gap-4 justify-between">
+        {% if prevArt %}
+        <a href="/articles/{{ prevArt.number }}/"
+           class="group flex items-center gap-3 bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all flex-1">
+          <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          <div>
+            <p class="article-tag">Previous</p>
+            <p class="font-headline font-semibold text-sm text-on-surface group-hover:text-primary transition-colors">
+              Article {{ prevArt.number }}{% if prevArt.title %}: {{ prevArt.title }}{% endif %}
+            </p>
+          </div>
+        </a>
+        {% else %}
+        <div class="flex-1"></div>
+        {% endif %}
+        {% if nextArt %}
+        <a href="/articles/{{ nextArt.number }}/"
+           class="group flex items-center gap-3 bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all flex-1 sm:text-right sm:flex-row-reverse">
+          <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          <div>
+            <p class="article-tag">Next</p>
+            <p class="font-headline font-semibold text-sm text-on-surface group-hover:text-primary transition-colors">
+              Article {{ nextArt.number }}{% if nextArt.title %}: {{ nextArt.title }}{% endif %}
+            </p>
+          </div>
+        </a>
+        {% endif %}
+      </nav>
+    </article>
+
+    {# Right sidebar — recitals #}
+    <aside class="hidden xl:block w-64 shrink-0">
+      <div class="sticky top-6">
+        <p class="article-tag mb-4">Related Recitals</p>
+        {% if articleRecitals.length > 0 %}
+        <div class="flex flex-col gap-3 sidebar-scroll max-h-[80vh] overflow-y-auto pr-2">
+          {% for rec in articleRecitals %}
+          <a href="/recitals/#recital-{{ rec.number }}"
+             class="block bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all group">
+            <p class="font-label text-xs font-medium text-primary mb-1">Recital {{ rec.number }}</p>
+            <p class="font-body text-sm text-on-surface-variant line-clamp-4 group-hover:text-on-surface transition-colors">
+              {{ rec.text | truncate(150) }}
+            </p>
+          </a>
+          {% endfor %}
+        </div>
+        {% else %}
+        <p class="font-body text-sm text-on-surface-variant italic">
+          No recitals have been mapped to this article yet. Recital mappings can be added to <code class="text-xs bg-surface-container px-1 py-0.5 rounded">recitalMap.json</code>.
+        </p>
+        {% endif %}
+      </div>
+    </aside>
+  </div>
+</div>

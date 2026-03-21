@@ -1,0 +1,56 @@
+---
+layout: base.njk
+pageTitle: Recitals
+permalink: /recitals/
+---
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+  {# Header #}
+  <div class="mb-10">
+    <p class="article-tag mb-2">Regulation (EU) 2022/1925</p>
+    <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Recitals</h1>
+    <p class="font-body text-lg text-on-surface-variant max-w-2xl">
+      The {{ recitals.length }} recitals of the Digital Markets Act provide the legislative reasoning behind each provision.
+    </p>
+  </div>
+
+  <div class="flex flex-col lg:flex-row gap-10">
+    {# Left sidebar — quick jump #}
+    <aside class="hidden lg:block w-48 shrink-0">
+      <div class="sticky top-6">
+        <p class="article-tag mb-4">Jump to</p>
+        <nav class="flex flex-col gap-1 sidebar-scroll max-h-[80vh] overflow-y-auto">
+          {% for rec in recitals %}
+          {% if rec.number % 10 == 1 or rec.number == 1 %}
+          <a href="#recital-{{ rec.number }}"
+             class="font-label text-sm text-on-surface-variant hover:text-primary transition-colors py-1">
+            Recitals {{ rec.number }}–{{ rec.number + 9 if rec.number + 9 <= recitals.length else recitals.length }}
+          </a>
+          {% endif %}
+          {% endfor %}
+        </nav>
+      </div>
+    </aside>
+
+    {# Main content — recitals list #}
+    <div class="flex-1 min-w-0 max-w-3xl">
+      {% for rec in recitals %}
+      <div id="recital-{{ rec.number }}" class="mb-8 scroll-mt-6">
+        <div class="bg-surface-container-lowest rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="shrink-0 w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+              <span class="font-headline font-bold text-on-primary-container text-sm">{{ rec.number }}</span>
+            </div>
+            <div class="min-w-0">
+              <p class="article-tag mb-2">Recital {{ rec.number }}</p>
+              <div class="font-body text-on-surface leading-relaxed text-base">
+                {{ rec.html | safe }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

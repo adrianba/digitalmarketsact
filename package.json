@@ -1,0 +1,26 @@
+{
+  "name": "digitalmarketsact",
+  "version": "1.0.0",
+  "description": "I am building a website that will allow easy access to the text of the Digital Markets Act (DMA). The DMA is a European Regulation. European Regulations have a list of numbered recitals, followed by a set of Articles. Articles usually have numbered or lettered subparts. Usually each Article or subpart has one or more Recitals associated with it.",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i src/css/main.css -o _site/css/style.css --minify",
+    "build:11ty": "npx @11ty/eleventy",
+    "build": "npm run build:11ty && npm run build:css",
+    "dev:css": "npx @tailwindcss/cli -i src/css/main.css -o _site/css/style.css --watch",
+    "dev:11ty": "npx @11ty/eleventy --serve",
+    "scrape": "node scripts/scrape-dma.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@tailwindcss/cli": "^4.2.2",
+    "autoprefixer": "^10.4.27",
+    "cheerio": "^1.2.0",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2"
+  }
+}

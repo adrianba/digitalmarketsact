@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1,
+    "roman": "I",
+    "label": "CHAPTER I",
+    "title": "SUBJECT MATTER, SCOPE AND DEFINITIONS"
+  },
+  {
+    "number": 2,
+    "roman": "II",
+    "label": "CHAPTER II",
+    "title": "GATEKEEPERS"
+  },
+  {
+    "number": 3,
+    "roman": "III",
+    "label": "CHAPTER III",
+    "title": "PRACTICES OF GATEKEEPERS THAT LIMIT CONTESTABILITY OR ARE UNFAIR"
+  },
+  {
+    "number": 4,
+    "roman": "IV",
+    "label": "CHAPTER IV",
+    "title": "MARKET INVESTIGATION"
+  },
+  {
+    "number": 5,
+    "roman": "V",
+    "label": "CHAPTER V",
+    "title": "INVESTIGATIVE, ENFORCEMENT AND MONITORING POWERS"
+  },
+  {
+    "number": 6,
+    "roman": "VI",
+    "label": "CHAPTER VI",
+    "title": "FINAL PROVISIONS"
+  }
+]

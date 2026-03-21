@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary */
+  --color-primary: #4c56af;
+  --color-primary-dim: #4049a2;
+  --color-primary-container: #e0e0ff;
+  --color-primary-fixed: #e0e0ff;
+  --color-primary-fixed-dim: #ced1ff;
+  --color-on-primary: #f9f6ff;
+  --color-on-primary-container: #3f48a1;
+  --color-on-primary-fixed: #2c358e;
+  --color-on-primary-fixed-variant: #4953ac;
+  --color-inverse-primary: #929bfa;
+
+  /* Secondary */
+  --color-secondary: #4d626c;
+  --color-secondary-dim: #415660;
+  --color-secondary-container: #cfe6f2;
+  --color-secondary-fixed: #cfe6f2;
+  --color-secondary-fixed-dim: #c1d8e4;
+  --color-on-secondary: #f2faff;
+  --color-on-secondary-container: #40555f;
+  --color-on-secondary-fixed: #2d424c;
+  --color-on-secondary-fixed-variant: #495f69;
+
+  /* Tertiary */
+  --color-tertiary: #ba1e21;
+  --color-tertiary-dim: #a80c16;
+  --color-tertiary-container: #fd5049;
+  --color-tertiary-fixed: #fd5049;
+  --color-tertiary-fixed-dim: #eb433e;
+  --color-on-tertiary: #fff7f6;
+  --color-on-tertiary-container: #1f0001;
+  --color-on-tertiary-fixed: #000000;
+  --color-on-tertiary-fixed-variant: #3b0002;
+
+  /* Surface */
+  --color-surface: #f9f9f9;
+  --color-surface-dim: #d4dbdd;
+  --color-surface-bright: #f9f9f9;
+  --color-surface-variant: #dde4e5;
+  --color-surface-container: #ebeeef;
+  --color-surface-container-low: #f2f4f4;
+  --color-surface-container-high: #e4e9ea;
+  --color-surface-container-highest: #dde4e5;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #2d3435;
+  --color-on-surface-variant: #5a6061;
+  --color-inverse-surface: #0c0f0f;
+  --color-inverse-on-surface: #9c9d9d;
+  --color-surface-tint: #4c56af;
+  --color-on-background: #2d3435;
+  --color-background: #f9f9f9;
+
+  /* Error */
+  --color-error: #9e3f4e;
+  --color-error-dim: #4f0116;
+  --color-error-container: #ff8b9a;
+  --color-on-error: #fff7f7;
+  --color-on-error-container: #782232;
+
+  /* Outline */
+  --color-outline: #757c7d;
+  --color-outline-variant: #adb3b4;
+
+  /* Typography */
+  --font-headline: "Manrope", sans-serif;
+  --font-body: "Newsreader", serif;
+  --font-label: "Manrope", sans-serif;
+
+  /* Border radius */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-body);
+  color: var(--color-on-surface);
+  background-color: var(--color-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Manrope */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headline);
+}
+
+/* Label/tag styling */
+.label {
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+/* Legal text styling - optimized for readability */
+.legal-text {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  max-width: 65ch;
+}
+
+/* Smooth transitions per design system — applied to interactive elements only */
+a, button, [role="button"], input, select, textarea {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}
+
+/* Ambient shadow per DESIGN.md */
+.shadow-ambient {
+  box-shadow: 0 8px 32px rgba(45, 52, 53, 0.06);
+}
+
+/* Article label tag */
+.article-tag {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: var(--color-primary);
+}
+
+/* Recital reference link */
+.recital-ref {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary-fixed-dim);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+}
+
+.recital-ref:hover {
+  text-decoration-color: var(--color-primary);
+}
+
+/* Scrollbar styling for sidebar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 2px;
+}
