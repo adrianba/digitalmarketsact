@@ -69,7 +69,7 @@ eleventyComputed:
       {# Article body — each paragraph paired with its recitals #}
       {% for para in article.paragraphs %}
       {% set paraRecitals = article.number | recitalsForParagraph(para.number, recitalMap, recitals) %}
-      <div class="mb-10 flex flex-col xl:flex-row gap-6 xl:gap-8" id="para-{{ para.number }}">
+      <div class="mb-10 flex flex-col xl:flex-row gap-6 xl:gap-8" id="{{ para.number }}">
         {# Paragraph content #}
         <div class="legal-text flex-1 min-w-0">
           {% if para.html %}

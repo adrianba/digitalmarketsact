@@ -108,7 +108,7 @@
     // Same page: scroll to hash target
     if (url.pathname === window.location.pathname) {
       if (url.hash) {
-        var target = document.querySelector(url.hash);
+        var target = document.getElementById(url.hash.slice(1));
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
           history.replaceState(null, "", url.hash);
@@ -269,7 +269,7 @@
         .slice(0, 20)
         .map(function (a, i) {
           var isExact = a.number === artNum;
-          var url = "/articles/" + a.number + "/" + (paraNum ? "#para-" + paraNum : "");
+          var url = "/articles/" + a.number + "/" + (paraNum ? "#" + paraNum : "");
           var paraPreview =
             isExact && a.paragraphs.length > 0
               ? '<div class="dma-result-paras">' +
