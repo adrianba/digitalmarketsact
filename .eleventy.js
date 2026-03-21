@@ -33,6 +33,18 @@ module.exports = function (eleventyConfig) {
     return recitals.filter((r) => nums.includes(r.number));
   });
 
+  // Filter: find which article/paragraph a recital maps to (reverse lookup)
+  eleventyConfig.addFilter("articleForRecital", function (recitalNum, recitalMap) {
+    for (const [artNum, paras] of Object.entries(recitalMap)) {
+      for (const [paraNum, recs] of Object.entries(paras)) {
+        if (Array.isArray(recs) && recs.includes(recitalNum)) {
+          return { article: parseInt(artNum, 10), paragraph: parseInt(paraNum, 10) };
+        }
+      }
+    }
+    return null;
+  });
+
   // Filter: find article by number
   eleventyConfig.addFilter("findArticle", function (articles, num) {
     return articles.find((a) => a.number === num);

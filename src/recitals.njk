@@ -42,7 +42,16 @@ permalink: /recitals/
               <span class="font-headline font-bold text-on-primary-container text-sm">{{ rec.number }}</span>
             </div>
             <div class="min-w-0">
-              <p class="article-tag mb-2">Recital {{ rec.number }}</p>
+              <div class="flex items-center gap-3 mb-2">
+                <p class="article-tag">Recital {{ rec.number }}</p>
+                {% set ref = rec.number | articleForRecital(recitalMap) %}
+                {% if ref %}
+                <a href="/articles/{{ ref.article }}/#para-{{ ref.paragraph }}"
+                   class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors">
+                  → Article {{ ref.article }}{% if ref.paragraph > 0 %}({{ ref.paragraph }}){% endif %}
+                </a>
+                {% endif %}
+              </div>
               <div class="font-body text-on-surface leading-relaxed text-base">
                 {{ rec.html | safe }}
               </div>
