@@ -109,7 +109,7 @@ eleventyComputed:
         {% if paraRecitals.length > 0 %}
         <div class="xl:w-56 shrink-0 flex flex-col gap-3">
           {% for rec in paraRecitals %}
-          <a href="/r/#recital-{{ rec.number }}"
+          <a href="/r/#r{{ rec.number }}"
              class="block bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all group border-l-2 border-primary-fixed-dim">
             <div class="flex items-center justify-between mb-1">
               <p class="font-label text-xs font-medium text-primary">Recital {{ rec.number }}</p>

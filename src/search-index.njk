@@ -37,7 +37,7 @@ eleventyExcludeFromCollections: true
   number: rec.number,
   text: rec.text,
   articleRef: ref,
-  url: "/r/#recital-" + rec.number
+  url: "/r/#r" + rec.number
 }) %}
 {% endfor %}
 {{ entries | dump | safe }}

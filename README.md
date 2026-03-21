@@ -13,6 +13,16 @@ A clean, navigable website for browsing the full text of the [Digital Markets Ac
 - **Auto-linked references** — Cross-references to other DMA articles link to those pages; EU legislation references (GDPR, ePrivacy Directive, etc.) link to EUR-Lex
 - **Responsive design** — Mobile navigation with collapsible menu; desktop layout with sidebar
 
+## URL Schema
+
+| Page | URL | Example |
+|------|-----|---------|
+| Index | `/` | `/` |
+| Article | `/N/` | `/5/` |
+| Article paragraph | `/N/#P` | `/5/#2` |
+| Recitals | `/r/` | `/r/` |
+| Recital anchor | `/r/#rN` | `/r/#r36` |
+
 ## Tech Stack
 
 - [Eleventy](https://www.11ty.dev/) (v3) — static site generator with Nunjucks templates
