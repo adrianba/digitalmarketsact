@@ -14,12 +14,19 @@
       { "name": "Chrome", "type": "Web browser" }
     ],
     "complianceReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+      {
+        "label": "Compliance report (2026)",
+        "url": "https://storage.googleapis.com/transparencyreport/report-downloads/pdf-report-bb_2025-3-7_2026-3-6_en_v1.pdf"
+      },
+      {
+        "label": "Compliance report (2025)",
+        "url": "https://storage.googleapis.com/transparencyreport/report-downloads/pdf-report-bb_2024-3-7_2025-3-6_en_v1.pdf"
+      }
     ],
     "profilingReports": [
       {
-        "label": "Consumer profiling report",
-        "url": "https://transparencyreport.google.com/report-downloads"
+        "label": "Consumer profiling report (2026)",
+        "url": "https://storage.googleapis.com/transparencyreport/report-downloads/pdf-report-aa_2025-11-1_2025-11-1_en_GB_v1.pdf"
       }
     ]
   },
@@ -32,13 +39,13 @@
       { "name": "Amazon Ads", "type": "Online advertising service" }
     ],
     "complianceReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+      { "label": "Compliance report (2026)", "url": "https://assets.aboutamazon.com/b0/54/a0a5212848ab9ff4b3e452be21aa/2026-compliance-report.pdf" },
+      { "label": "Compliance report (2025)", "url": "https://assets.aboutamazon.com/4a/61/7e24a2cb48e785ba58c428cf32a7/amazon-compliance-report-2025.pdf" },
+      { "label": "Compliance report (2024)", "url": "https://assets.aboutamazon.com/a8/33/e931dab5407bae69a8f21b31d2ad/amazon-dma-compliance-report.pdf" }
     ],
     "profilingReports": [
-      {
-        "label": "Consumer profiling report",
-        "url": "https://www.aboutamazon.eu/news/policy/amazon-and-the-digital-markets-act"
-      }
+      { "label": "Consumer profiling report (2026)", "url": "https://assets.aboutamazon.com/21/bb/6da7410948808d037d73ef5f4b7f/2026-profiling-report.pdf" },
+      { "label": "Consumer profiling report (2025)", "url": "https://assets.aboutamazon.com/9c/04/6d809ce7489c86e25d5a8755e68b/amazon-profiling-report-2025.pdf" }
     ]
   },
   {
@@ -101,8 +108,8 @@
     "services": [
       { "name": "Facebook", "type": "Online social networking service" },
       { "name": "Instagram", "type": "Online social networking service" },
-      { "name": "WhatsApp", "type": "NIICS" },
-      { "name": "Messenger", "type": "NIICS" },
+      { "name": "WhatsApp", "type": "N-IICS" },
+      { "name": "Messenger", "type": "N-IICS" },
       { "name": "Meta Ads", "type": "Online advertising service" }
     ],
     "complianceReports": [
