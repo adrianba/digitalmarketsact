@@ -36,6 +36,29 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // Auto-link internal DMA article references (Article 1–54)
+  eleventyConfig.addTransform("linkArticleRefs", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    // Match "Article N" or "Article N(P)" where N is 1-54, not inside an existing <a>
+    // Use a function replacer to avoid linking inside tags or existing links
+    content = content.replace(
+      /(?<![<\/\w])Article(?:&nbsp;|\s)+(\d{1,2})(?:\((\d+)\))?/g,
+      function (match, artStr, paraStr, offset) {
+        var artNum = parseInt(artStr, 10);
+        if (artNum < 1 || artNum > 54) return match;
+        // Check we're not inside an HTML tag or existing <a>
+        var before = content.substring(Math.max(0, offset - 200), offset);
+        // If inside a tag attribute or <a> content, skip
+        if (/<a\b[^>]*$/.test(before) && !/<\/a>/.test(before.slice(before.lastIndexOf("<a")))) return match;
+        if (/<[^>]*$/.test(before)) return match;
+        var url = "/articles/" + artNum + "/";
+        if (paraStr) url += "#para-" + paraStr;
+        return '<a href="' + url + '" class="recital-ref">' + match + "</a>";
+      }
+    );
+    return content;
+  });
+
   // Make data available globally
   eleventyConfig.addGlobalData("site", {
     title: "Digital Markets Act",
