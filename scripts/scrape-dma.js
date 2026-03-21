@@ -293,6 +293,41 @@ function parseChaptersAndArticles($) {
   return { chapters, articles };
 }
 
+/**
+ * Special-case Article 2 (Definitions): promote each numbered definition
+ * from a subpoint into its own paragraph so they can be individually
+ * linked and searched.
+ */
+function promoteArticle2Definitions(articles) {
+  const art2 = articles.find((a) => a.number === 2);
+  if (!art2 || art2.paragraphs.length !== 1) return;
+
+  const para0 = art2.paragraphs[0];
+  const newParagraphs = [
+    {
+      number: 0,
+      text: para0.text,
+      html: para0.html,
+      subpoints: [],
+    },
+  ];
+
+  for (const sp of para0.subpoints) {
+    const num = parseInt(sp.label.replace(/[()]/g, ""), 10);
+    if (isNaN(num)) continue;
+    newParagraphs.push({
+      number: num,
+      text: sp.label + " " + sp.text,
+      html: sp.html
+        ? `<p>${sp.label} ${sp.html.replace(/<\/?p>/g, "")}</p>`
+        : "",
+      subpoints: sp.subpoints || [],
+    });
+  }
+
+  art2.paragraphs = newParagraphs;
+}
+
 function romanToInt(roman) {
   const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 };
   let result = 0;
@@ -324,6 +359,7 @@ function main() {
   // Parse chapters and articles
   console.log("Parsing chapters and articles...");
   const { chapters, articles } = parseChaptersAndArticles($);
+  promoteArticle2Definitions(articles);
   console.log(`  Found ${chapters.length} chapters`);
   console.log(`  Found ${articles.length} articles`);
 
