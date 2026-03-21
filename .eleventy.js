@@ -51,7 +51,7 @@ module.exports = function (eleventyConfig) {
     // Track <a> and data-no-autolink nesting to skip their content
     var inSkip = 0;
     var result = content.replace(/(<a\b[^>]*>|<\/a>|<title>|<\/title>|<[^>]+data-no-autolink[^>]*>|<\/h[1-6]>)|Article(?:&nbsp;|\s)+(\d{1,2})(?:\((\d+)\))?/gi,
-      function (match, tag, artStr, paraStr) {
+      function (match, tag, artStr, paraStr, offset) {
         if (tag) {
           if (tag.startsWith("</")) inSkip = Math.max(0, inSkip - 1);
           else if (!tag.endsWith("/>")) inSkip++;
@@ -60,6 +60,11 @@ module.exports = function (eleventyConfig) {
         if (inSkip > 0) return match;
         var artNum = parseInt(artStr, 10);
         if (artNum < 1 || artNum > 54) return match;
+        // Skip if this Article reference is part of another Regulation/Directive
+        // Look ahead up to 200 chars (skipping HTML tags) for "of Regulation" or "of Directive"
+        var lookahead = content.substring(offset + match.length, offset + match.length + 200)
+          .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ");
+        if (/^[^.;]*?\bof\s+(?:Regulation|Directive)\b/i.test(lookahead)) return match;
         var url = "/" + artNum + "/";
         if (paraStr) url += "#" + paraStr;
         return '<a href="' + url + '" class="recital-ref">' + match + "</a>";
