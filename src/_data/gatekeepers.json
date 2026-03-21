@@ -1,7 +1,7 @@
 [
   {
     "name": "Alphabet Inc.",
-    "slug": "alphabet",
+    "slug": "googl",
     "designated": "2023-09-06",
     "services": [
       { "name": "Google Search", "type": "Online search engine" },
@@ -32,7 +32,7 @@
   },
   {
     "name": "Amazon.com, Inc.",
-    "slug": "amazon",
+    "slug": "amzn",
     "designated": "2023-09-06",
     "services": [
       { "name": "Amazon Marketplace", "type": "Online intermediation service" },
@@ -97,7 +97,7 @@
   },
   {
     "name": "Apple Inc.",
-    "slug": "apple",
+    "slug": "aapl",
     "designated": "2023-09-06",
     "undesignatedNote": "iPadOS designated 2024-04-29",
     "services": [
@@ -127,7 +127,7 @@
   },
   {
     "name": "Booking Holdings Inc.",
-    "slug": "booking",
+    "slug": "bkng",
     "designated": "2024-05-13",
     "services": [{ "name": "Booking.com", "type": "Online intermediation service" }],
     "complianceReports": [
@@ -153,7 +153,7 @@
   },
   {
     "name": "ByteDance Ltd.",
-    "slug": "bytedance",
+    "slug": "bdnce",
     "designated": "2023-09-06",
     "services": [{ "name": "TikTok", "type": "Online social networking service" }],
     "complianceReports": [
@@ -208,7 +208,7 @@
   },
   {
     "name": "Microsoft Corporation",
-    "slug": "microsoft",
+    "slug": "msft",
     "designated": "2023-09-06",
     "services": [
       { "name": "Windows", "type": "Operating system" },

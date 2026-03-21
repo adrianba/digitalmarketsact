@@ -40,4 +40,16 @@ eleventyExcludeFromCollections: true
   url: "/r/#r" + rec.number
 }) %}
 {% endfor %}
+{% for gk in gatekeepers %}
+{% set svcNames = [] %}
+{% for svc in gk.services %}
+{% set _ = svcNames.push(svc.name) %}
+{% endfor %}
+{% set _ = entries.push({
+  type: "gatekeeper",
+  name: gk.name,
+  text: gk.name + " — " + svcNames.join(", "),
+  url: "/g/#" + gk.slug
+}) %}
+{% endfor %}
 {{ entries | dump | safe }}

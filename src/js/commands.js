@@ -170,6 +170,8 @@
             m.entry.type === "article"
               ? "Article " + m.entry.article + (m.entry.paragraph > 0 ? "(" + m.entry.paragraph + ")" : "") +
                 (m.entry.title ? " — " + escapeHtml(m.entry.title) : "")
+              : m.entry.type === "gatekeeper"
+              ? "Gatekeeper — " + escapeHtml(m.entry.name)
               : "Recital " + m.entry.number;
           return (
             '<div class="dma-result-item' + (i === 0 ? " selected" : "") + '">' +
