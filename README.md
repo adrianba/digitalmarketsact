@@ -6,9 +6,12 @@ A clean, navigable website for browsing the full text of the [Digital Markets Ac
 
 - **Index page** — All 54 articles grouped by their 6 chapters
 - **Article pages** — Full text with paragraph structure, chapter sidebar navigation, and previous/next article links
-- **Recitals page** — All 109 recitals with anchor links for cross-referencing from article pages
-- **Recital sidebar** — Article pages show related recitals in a right sidebar (mappings defined in `src/_data/recitalMap.json`)
-- **Responsive design** — Mobile navigation with collapsible menu; desktop three-column layout
+- **Inline recitals** — Related recitals shown next to the paragraph they apply to (109 recitals mapped to articles)
+- **Recitals page** — All 109 recitals with back-links to their corresponding article paragraph
+- **Search** (`Ctrl+F`) — Full-text search across all articles and recitals
+- **Go to** (`Ctrl+G`) — Quick navigation: type `5` for Article 5, `5.9` for Article 5 ¶9, or `r36` for Recital 36
+- **Auto-linked references** — Cross-references to other DMA articles link to those pages; EU legislation references (GDPR, ePrivacy Directive, etc.) link to EUR-Lex
+- **Responsive design** — Mobile navigation with collapsible menu; desktop layout with sidebar
 
 ## Tech Stack
 
@@ -40,10 +43,15 @@ This runs Eleventy's dev server and Tailwind's CSS watcher concurrently.
 ## Project Structure
 
 ```
-├── .eleventy.js              # Eleventy configuration (filters, collections, dirs)
+├── .eleventy.js              # Eleventy config (filters, transforms, auto-linking)
+├── Dockerfile                # Multi-stage: node build → nginx:stable-alpine serve
+├── nginx.conf                # Gzip, caching, clean URLs, security headers
+├── .github/workflows/
+│   └── build.yml             # CI: build and push container to GHCR on push to main
 ├── package.json              # Build scripts and dependencies
 ├── scripts/
 │   ├── scrape-dma.js         # Parser: converts raw HTML → structured JSON
+│   ├── map-recitals.js       # Recital-to-article mapping analysis tool
 │   └── dma-raw.html          # Cached DMA source HTML from EUR-Lex
 ├── src/
 │   ├── _data/
@@ -53,12 +61,15 @@ This runs Eleventy's dev server and Tailwind's CSS watcher concurrently.
 │   │   └── recitalMap.json   # Article → recital mappings (manually curated)
 │   ├── _includes/
 │   │   ├── base.njk          # HTML shell layout
-│   │   ├── header.njk        # Top navigation bar
-│   │   └── footer.njk        # Footer with EU Official Journal link
+│   │   ├── header.njk        # Top navigation bar with search button
+│   │   └── footer.njk        # Footer with EUR-Lex disclaimer
 │   ├── articles/
 │   │   └── article.njk       # Article page template (paginated, one per article)
 │   ├── css/
 │   │   └── main.css          # Tailwind CSS input with design system tokens
+│   ├── js/
+│   │   └── commands.js       # Search, go-to-article, go-to-recital UI
+│   ├── search-index.njk      # Generates /search-index.json at build time
 │   ├── index.njk             # Home page — chapter-grouped article listing
 │   └── recitals.njk          # Recitals listing page
 ├── design.zip                # Design reference (mockups + DESIGN.md)
@@ -79,7 +90,7 @@ The file `src/_data/recitalMap.json` maps article paragraphs to their related re
 }
 ```
 
-This means Article 3, paragraph 1 relates to Recitals 15, 16, 17, 18, and 22. A few sample mappings are included; the rest can be filled in manually.
+This means Article 3, paragraph 1 relates to Recitals 15, 16, 17, 18, and 22. All 109 recitals are mapped to their corresponding articles. Recitals appear inline next to the paragraph they apply to.
 
 ## Re-scraping the DMA Text
 
@@ -90,6 +101,20 @@ npm run scrape
 ```
 
 This runs `scripts/scrape-dma.js`, which parses `scripts/dma-raw.html` and writes the JSON data files to `src/_data/`. The raw HTML was fetched from [EUR-Lex](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32022R1925).
+
+## Docker
+
+The site is containerized with nginx for production deployment:
+
+```bash
+# Build the container
+docker build -t digitalmarketsact .
+
+# Run locally on port 8080
+docker run -p 8080:80 digitalmarketsact
+```
+
+The GitHub Action automatically builds and pushes to `ghcr.io/adrianba/digitalmarketsact:latest` on every push to main.
 
 ## Build Scripts
 
