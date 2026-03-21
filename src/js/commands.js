@@ -137,85 +137,55 @@
     return escaped.replace(re, '<mark class="dma-highlight">$1</mark>');
   }
 
-  // --- Search (Ctrl+F) ---
-  async function openSearch() {
-    await ensureData();
-    openModal("dma-search", "Search", "Ctrl+F", "Search articles and recitals…", function (query, overlay) {
-      const results = overlay.querySelector(".dma-modal-results");
-      if (!query || query.length < 2) {
-        results.innerHTML = '<div class="dma-result-hint">Type at least 2 characters to search</div>';
-        return;
-      }
-      const q = query.toLowerCase();
-      const matches = [];
-      for (const entry of searchIndex) {
-        if (!entry.text) continue;
-        const idx = entry.text.toLowerCase().indexOf(q);
-        if (idx === -1) continue;
-        const start = Math.max(0, idx - 40);
-        const end = Math.min(entry.text.length, idx + query.length + 80);
-        const snippet = (start > 0 ? "…" : "") + entry.text.slice(start, end) + (end < entry.text.length ? "…" : "");
-        matches.push({ entry, snippet });
-        if (matches.length >= 30) break;
-      }
-
-      if (matches.length === 0) {
-        results.innerHTML = '<div class="dma-result-hint">No results</div>';
-        return;
-      }
-
-      results.innerHTML = matches
-        .map(function (m, i) {
-          var label;
-          if (m.entry.type === "article") {
-            label = "Article " + m.entry.article + (m.entry.paragraph > 0 ? "(" + m.entry.paragraph + ")" : "") +
-              (m.entry.title ? " — " + escapeHtml(m.entry.title) : "");
-          } else if (m.entry.type === "gatekeeper") {
-            label = "Gatekeeper — " + escapeHtml(m.entry.name);
-          } else {
-            label = "Recital " + m.entry.number;
-          }
-          return (
-            '<div class="dma-result-item' + (i === 0 ? " selected" : "") + '">' +
-            '<a href="' + m.entry.url + '">' +
-            '<div class="dma-result-label">' + label + "</div>" +
-            '<div class="dma-result-snippet">' + highlightMatch(m.snippet, query) + "</div>" +
-            "</a></div>"
-          );
-        })
-        .join("");
-      overlay._selectedIdx = 0;
-    });
-  }
-
-  // --- Go to Article or Recital (Ctrl+G) ---
-  async function openGoto() {
+  // --- Unified command palette (Ctrl+F / Ctrl+G) ---
+  async function openCommandPalette() {
     await ensureData();
     // Build article list
-    const artMap = {};
-    for (const e of articles) {
+    var artMap = {};
+    for (var i = 0; i < articles.length; i++) {
+      var e = articles[i];
       if (!artMap[e.article]) {
         artMap[e.article] = { number: e.article, title: e.title, chapter: e.chapter, chapterTitle: e.chapterTitle, paragraphs: [] };
       }
-      if (e.paragraph > 0 && !artMap[e.article].paragraphs.includes(e.paragraph)) {
+      if (e.paragraph > 0 && artMap[e.article].paragraphs.indexOf(e.paragraph) === -1) {
         artMap[e.article].paragraphs.push(e.paragraph);
       }
     }
-    const artList = Object.values(artMap).sort(function (a, b) { return a.number - b.number; });
+    var artList = Object.values(artMap).sort(function (a, b) { return a.number - b.number; });
 
     // Build recital list
-    const recList = recitals
+    var recList = recitals
       .reduce(function (acc, e) {
         if (!acc.find(function (x) { return x.number === e.number; })) acc.push(e);
         return acc;
       }, [])
       .sort(function (a, b) { return a.number - b.number; });
 
-    openModal("dma-goto", "Go to", "Ctrl+G", 'e.g. "5", "5.9", or "r36" for recital', function (query, overlay) {
+    openModal("dma-cmd", "Search or Go to", "Ctrl+F", 'Search, or type "5", "5.9", "r36"', function (query, overlay) {
       var results = overlay.querySelector(".dma-modal-results");
       var q = query.trim();
 
-      // Detect recital mode: starts with "r" or "R"
+      // Empty: show article list
+      if (!q) {
+        results.innerHTML = artList
+          .slice(0, 15)
+          .map(function (a, i) {
+            return (
+              '<div class="dma-result-item' + (i === 0 ? " selected" : "") + '">' +
+              '<a href="/' + a.number + '/">' +
+              '<div class="dma-result-label">' +
+              '<span class="dma-result-num">Art. ' + a.number + "</span> " +
+              escapeHtml(a.title || "") +
+              '<span class="dma-result-chapter">Ch. ' + a.chapter + "</span>" +
+              "</div></a></div>"
+            );
+          })
+          .join("");
+        overlay._selectedIdx = 0;
+        return;
+      }
+
+      // Recital mode: starts with "r" or "R" followed by optional digits only
       var recMatch = q.match(/^[rR]\s*(\d*)$/);
       if (recMatch !== null) {
         var recNum = recMatch[1];
@@ -250,50 +220,88 @@
         return;
       }
 
-      // Article mode
-      var artNum = null;
-      var paraNum = null;
+      // Article goto mode: matches N, N.P, or N P
       var artMatch = q.match(/^(\d+)(?:[.\s]+(\d+))?$/);
       if (artMatch) {
-        artNum = parseInt(artMatch[1], 10);
-        paraNum = artMatch[2] ? parseInt(artMatch[2], 10) : null;
+        var artNum = parseInt(artMatch[1], 10);
+        var paraNum = artMatch[2] ? parseInt(artMatch[2], 10) : null;
+        var artFiltered = artList.filter(function (a) { return String(a.number).startsWith(String(artNum)); });
+
+        if (artFiltered.length > 0) {
+          results.innerHTML = artFiltered
+            .slice(0, 20)
+            .map(function (a, i) {
+              var isExact = a.number === artNum;
+              var url = "/" + a.number + "/" + (paraNum ? "#" + paraNum : "");
+              var paraPreview =
+                isExact && a.paragraphs.length > 0
+                  ? '<div class="dma-result-paras">' +
+                    a.paragraphs
+                      .sort(function (x, y) { return x - y; })
+                      .map(function (p) {
+                        return '<span class="dma-para-chip' + (p === paraNum ? " active" : "") + '">¶' + p + "</span>";
+                      })
+                      .join("") +
+                    "</div>"
+                  : "";
+              return (
+                '<div class="dma-result-item' + (i === 0 ? " selected" : "") + '">' +
+                '<a href="' + url + '">' +
+                '<div class="dma-result-label">' +
+                '<span class="dma-result-num">Art. ' + a.number + "</span> " +
+                escapeHtml(a.title || "") +
+                '<span class="dma-result-chapter">Ch. ' + a.chapter + "</span>" +
+                "</div>" +
+                paraPreview +
+                "</a></div>"
+              );
+            })
+            .join("");
+          overlay._selectedIdx = 0;
+          return;
+        }
       }
 
-      var artFiltered = artList;
-      if (artNum !== null) {
-        artFiltered = artList.filter(function (a) { return String(a.number).startsWith(String(artNum)); });
+      // Full-text search mode (fallback)
+      if (q.length < 2) {
+        results.innerHTML = '<div class="dma-result-hint">Type at least 2 characters to search</div>';
+        return;
+      }
+      var sq = q.toLowerCase();
+      var matches = [];
+      for (var j = 0; j < searchIndex.length; j++) {
+        var entry = searchIndex[j];
+        if (!entry.text) continue;
+        var idx = entry.text.toLowerCase().indexOf(sq);
+        if (idx === -1) continue;
+        var start = Math.max(0, idx - 40);
+        var end = Math.min(entry.text.length, idx + q.length + 80);
+        var snippet = (start > 0 ? "…" : "") + entry.text.slice(start, end) + (end < entry.text.length ? "…" : "");
+        matches.push({ entry: entry, snippet: snippet });
+        if (matches.length >= 30) break;
       }
 
-      if (q && artFiltered.length === 0) {
-        results.innerHTML = '<div class="dma-result-hint">No matching article. Type <strong>r</strong> for recitals.</div>';
+      if (matches.length === 0) {
+        results.innerHTML = '<div class="dma-result-hint">No results</div>';
         return;
       }
 
-      results.innerHTML = artFiltered
-        .slice(0, 20)
-        .map(function (a, i) {
-          var isExact = a.number === artNum;
-          var url = "/" + a.number + "/" + (paraNum ? "#" + paraNum : "");
-          var paraPreview =
-            isExact && a.paragraphs.length > 0
-              ? '<div class="dma-result-paras">' +
-                a.paragraphs
-                  .sort(function (x, y) { return x - y; })
-                  .map(function (p) {
-                    return '<span class="dma-para-chip' + (p === paraNum ? " active" : "") + '">¶' + p + "</span>";
-                  })
-                  .join("") +
-                "</div>"
-              : "";
+      results.innerHTML = matches
+        .map(function (m, i) {
+          var label;
+          if (m.entry.type === "article") {
+            label = "Article " + m.entry.article + (m.entry.paragraph > 0 ? "(" + m.entry.paragraph + ")" : "") +
+              (m.entry.title ? " — " + escapeHtml(m.entry.title) : "");
+          } else if (m.entry.type === "gatekeeper") {
+            label = "Gatekeeper — " + escapeHtml(m.entry.name);
+          } else {
+            label = "Recital " + m.entry.number;
+          }
           return (
             '<div class="dma-result-item' + (i === 0 ? " selected" : "") + '">' +
-            '<a href="' + url + '">' +
-            '<div class="dma-result-label">' +
-            '<span class="dma-result-num">Art. ' + a.number + "</span> " +
-            escapeHtml(a.title || "") +
-            '<span class="dma-result-chapter">Ch. ' + a.chapter + "</span>" +
-            "</div>" +
-            paraPreview +
+            '<a href="' + m.entry.url + '">' +
+            '<div class="dma-result-label">' + label + "</div>" +
+            '<div class="dma-result-snippet">' + highlightMatch(m.snippet, q) + "</div>" +
             "</a></div>"
           );
         })
@@ -304,18 +312,13 @@
 
   // --- Keyboard shortcuts ---
   document.addEventListener("keydown", function (e) {
-    // Ignore if typing in an input already inside a modal
     if (e.target.closest(".dma-modal")) return;
 
-    if ((e.ctrlKey || e.metaKey) && e.key === "f") {
+    if ((e.ctrlKey || e.metaKey) && (e.key === "f" || e.key === "g")) {
       e.preventDefault();
-      openSearch();
-    } else if ((e.ctrlKey || e.metaKey) && e.key === "g") {
-      e.preventDefault();
-      openGoto();
+      openCommandPalette();
     } else if (e.key === "Escape") {
-      closeModal("dma-search");
-      closeModal("dma-goto");
+      closeModal("dma-cmd");
     }
   });
 
@@ -323,7 +326,7 @@
   var searchBtn = document.getElementById("search-btn");
   if (searchBtn) {
     searchBtn.addEventListener("click", function () {
-      openSearch();
+      openCommandPalette();
     });
   }
 
