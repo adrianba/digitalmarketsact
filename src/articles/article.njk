@@ -12,7 +12,6 @@ eleventyComputed:
 {% set chapter = chapters | findChapter(article.chapter) %}
 {% set prevArt = articles | prevArticle(article.number) %}
 {% set nextArt = articles | nextArticle(article.number) %}
-{% set articleRecitals = article.number | recitalsForArticle(recitalMap, recitals) %}
 
 <div class="max-w-7xl mx-auto px-6 lg:px-10 py-8">
   {# Breadcrumb #}
@@ -50,8 +49,8 @@ eleventyComputed:
       </div>
     </aside>
 
-    {# Main content #}
-    <article class="flex-1 min-w-0 max-w-3xl">
+    {# Main content with inline recitals #}
+    <article class="flex-1 min-w-0">
       {# Article header #}
       <header class="mb-8">
         <p class="article-tag mb-2">Article {{ article.number }}</p>
@@ -60,11 +59,12 @@ eleventyComputed:
         {% endif %}
       </header>
 
-      {# Article body #}
-      <div class="legal-text">
-        {% for para in article.paragraphs %}
-        <div class="mb-6" id="para-{{ para.number }}">
-          {# Paragraph text #}
+      {# Article body — each paragraph paired with its recitals #}
+      {% for para in article.paragraphs %}
+      {% set paraRecitals = article.number | recitalsForParagraph(para.number, recitalMap, recitals) %}
+      <div class="mb-10 flex flex-col xl:flex-row gap-6 xl:gap-8" id="para-{{ para.number }}">
+        {# Paragraph content #}
+        <div class="legal-text flex-1 min-w-0">
           {% if para.html %}
           <div class="font-body text-on-surface leading-relaxed">
             {{ para.html | safe }}
@@ -97,11 +97,31 @@ eleventyComputed:
           </div>
           {% endif %}
         </div>
-        {% endfor %}
+
+        {# Inline recitals for this paragraph #}
+        {% if paraRecitals.length > 0 %}
+        <div class="xl:w-56 shrink-0 flex flex-col gap-3">
+          {% for rec in paraRecitals %}
+          <a href="/recitals/#recital-{{ rec.number }}"
+             class="block bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all group border-l-2 border-primary-fixed-dim">
+            <div class="flex items-center justify-between mb-1">
+              <p class="font-label text-xs font-medium text-primary">Recital {{ rec.number }}</p>
+              <svg class="w-3.5 h-3.5 text-outline-variant group-hover:text-primary transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </div>
+            <p class="font-body text-sm text-on-surface-variant italic line-clamp-4 group-hover:text-on-surface transition-colors">
+              {{ rec.text | truncate(160) }}
+            </p>
+          </a>
+          {% endfor %}
+        </div>
+        {% endif %}
       </div>
+      {% endfor %}
 
       {# Prev / Next navigation #}
-      <nav class="mt-12 flex flex-col sm:flex-row gap-4 justify-between">
+      <nav class="mt-12 max-w-3xl flex flex-col sm:flex-row gap-4 justify-between">
         {% if prevArt %}
         <a href="/articles/{{ prevArt.number }}/"
            class="group flex items-center gap-3 bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all flex-1">
@@ -134,29 +154,5 @@ eleventyComputed:
         {% endif %}
       </nav>
     </article>
-
-    {# Right sidebar — recitals #}
-    <aside class="hidden xl:block w-64 shrink-0">
-      <div class="sticky top-6">
-        <p class="article-tag mb-4">Related Recitals</p>
-        {% if articleRecitals.length > 0 %}
-        <div class="flex flex-col gap-3 sidebar-scroll max-h-[80vh] overflow-y-auto pr-2">
-          {% for rec in articleRecitals %}
-          <a href="/recitals/#recital-{{ rec.number }}"
-             class="block bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all group">
-            <p class="font-label text-xs font-medium text-primary mb-1">Recital {{ rec.number }}</p>
-            <p class="font-body text-sm text-on-surface-variant line-clamp-4 group-hover:text-on-surface transition-colors">
-              {{ rec.text | truncate(150) }}
-            </p>
-          </a>
-          {% endfor %}
-        </div>
-        {% else %}
-        <p class="font-body text-sm text-on-surface-variant italic">
-          No recitals have been mapped to this article yet. Recital mappings can be added to <code class="text-xs bg-surface-container px-1 py-0.5 rounded">recitalMap.json</code>.
-        </p>
-        {% endif %}
-      </div>
-    </aside>
   </div>
 </div>
