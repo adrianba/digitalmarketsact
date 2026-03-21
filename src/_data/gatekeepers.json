@@ -157,10 +157,12 @@
     "designated": "2023-09-06",
     "services": [{ "name": "TikTok", "type": "Online social networking service" }],
     "complianceReports": [
-      { "label": "DMA Transparency Reports", "url": "https://www.tiktok.com/transparency/en/dma-transparency" }
+      { "label": "Compliance report (2025)", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/Bytedance DMA Compliance Report Public Overview_2025.pdf" },
+      { "label": "Compliance report (2024)", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/Bytedance DMA Compliance Report Public Overview.pdf" }
     ],
     "profilingReports": [
-      { "label": "DMA Transparency Reports", "url": "https://www.tiktok.com/transparency/en/dma-transparency" }
+      { "label": "Consumer profiling report (2025)", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhsllrta/DMA/2025 DMA/ByteDance 2025 DMA Article 15 Public Report.pdf" },
+      { "label": "Consumer profiling report (2024)", "url": "https://sf16-va.tiktokcdn.com/obj/eden-va2/uhkklyeh7othpu/ByteDance Consumer Profiling Techniques Public Overview.pdf" }
     ]
   },
   {
