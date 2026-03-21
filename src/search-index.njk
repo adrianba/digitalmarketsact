@@ -24,7 +24,7 @@ eleventyExcludeFromCollections: true
   title: article.title,
   chapter: chapter.roman if chapter else "",
   chapterTitle: chapter.title if chapter else "",
-  text: sp.text,
+  text: sp.label + " " + sp.text,
   url: "/articles/" + article.number + "/#para-" + para.number
 }) %}
 {% endfor %}

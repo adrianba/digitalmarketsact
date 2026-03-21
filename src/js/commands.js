@@ -37,6 +37,12 @@
 
     overlay.addEventListener("click", function (e) {
       if (e.target === overlay) closeModal(id);
+      // Handle clicks on result links
+      var link = e.target.closest(".dma-result-item a");
+      if (link) {
+        e.preventDefault();
+        navigateAndClose(link.href, id);
+      }
     });
 
     return overlay;
@@ -79,9 +85,10 @@
         const selected = items[overlay._selectedIdx];
         if (selected) {
           const link = selected.querySelector("a");
-          if (link) window.location.href = link.href;
+          if (link) navigateAndClose(link.href, id);
+        } else {
+          closeModal(id);
         }
-        closeModal(id);
         e.preventDefault();
       }
     };
@@ -93,6 +100,23 @@
   function closeModal(id) {
     const overlay = document.getElementById(id);
     if (overlay) overlay.classList.remove("active");
+  }
+
+  function navigateAndClose(href, modalId) {
+    closeModal(modalId);
+    var url = new URL(href, window.location.origin);
+    // Same page: scroll to hash target
+    if (url.pathname === window.location.pathname) {
+      if (url.hash) {
+        var target = document.querySelector(url.hash);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+          history.replaceState(null, "", url.hash);
+        }
+      }
+    } else {
+      window.location.href = href;
+    }
   }
 
   function updateSelection(items, idx) {
