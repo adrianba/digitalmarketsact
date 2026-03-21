@@ -45,8 +45,8 @@ permalink: /g/
       <section id="{{ gk.slug }}" class="mb-12 scroll-mt-6">
         <div class="bg-surface-container-lowest rounded-xl p-6">
           {# Gatekeeper header #}
-          <div class="mb-4">
-            <h2 class="font-headline font-bold text-xl text-on-surface">{{ gk.name }}</h2>
+          <div class="mb-4" data-permalink="/g/#{{ gk.slug }}">
+            <h2 class="font-headline font-bold text-xl text-on-surface permalink-anchor">{{ gk.name }}</h2>
             <p class="font-label text-xs text-on-surface-variant mt-1">
               Designated {{ gk.designated }}
               {% if gk.undesignatedNote %} · {{ gk.undesignatedNote }}{% endif %}

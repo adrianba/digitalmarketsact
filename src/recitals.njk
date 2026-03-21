@@ -41,8 +41,8 @@ permalink: /r/
               <span class="font-headline font-bold text-on-primary-container text-sm">{{ rec.number }}</span>
             </div>
             <div class="min-w-0">
-              <div class="flex items-center gap-3 mb-2">
-                <p class="article-tag">Recital {{ rec.number }}</p>
+              <div class="flex items-center gap-3 mb-2" data-permalink="/r/#r{{ rec.number }}">
+                <p class="article-tag permalink-anchor">Recital {{ rec.number }}</p>
                 {% set ref = rec.number | articleForRecital(recitalMap) %}
                 {% if ref %}
                 <a href="/{{ ref.article }}/#{{ ref.paragraph }}"
