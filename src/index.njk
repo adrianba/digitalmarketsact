@@ -59,9 +59,10 @@ pageTitle: Articles
                   {{ article.title }}
                 </h3>
                 {% endif %}
-                {% if article.paragraphs.length > 0 %}
+                {% set pCount = article.paragraphs | paraCount %}
+                {% if pCount > 0 %}
                 <p class="text-sm text-on-surface-variant font-label">
-                  {{ article.paragraphs.length }} paragraph{{ "s" if article.paragraphs.length != 1 }}
+                  {{ pCount }} paragraph{{ "s" if pCount != 1 }}
                 </p>
                 {% endif %}
               </div>

@@ -116,6 +116,12 @@ module.exports = function (eleventyConfig) {
     return articles.find((a) => a.number === num);
   });
 
+  // Filter: count meaningful paragraphs (exclude intro paragraph 0 if numbered ones exist)
+  eleventyConfig.addFilter("paraCount", function (paragraphs) {
+    const numbered = paragraphs.filter((p) => p.number > 0).length;
+    return numbered > 0 ? numbered : paragraphs.length;
+  });
+
   // Filter: articles in a chapter
   eleventyConfig.addFilter("articlesInChapter", function (articles, chapterNumber) {
     return articles.filter((a) => a.chapter === chapterNumber);
