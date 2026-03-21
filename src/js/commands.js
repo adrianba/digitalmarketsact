@@ -269,7 +269,7 @@
         .slice(0, 20)
         .map(function (a, i) {
           var isExact = a.number === artNum;
-          var url = "/articles/" + a.number + "/" + (paraNum ? "#" + paraNum : "");
+          var url = "/" + a.number + "/" + (paraNum ? "#" + paraNum : "");
           var paraPreview =
             isExact && a.paragraphs.length > 0
               ? '<div class="dma-result-paras">' +

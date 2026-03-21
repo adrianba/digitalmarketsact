@@ -60,7 +60,7 @@ module.exports = function (eleventyConfig) {
         if (inSkip > 0) return match;
         var artNum = parseInt(artStr, 10);
         if (artNum < 1 || artNum > 54) return match;
-        var url = "/articles/" + artNum + "/";
+        var url = "/" + artNum + "/";
         if (paraStr) url += "#" + paraStr;
         return '<a href="' + url + '" class="recital-ref">' + match + "</a>";
       }

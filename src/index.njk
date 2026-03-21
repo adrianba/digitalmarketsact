@@ -46,7 +46,7 @@ pageTitle: Articles
         <div class="grid gap-3">
           {% set chapterArticles = articles | articlesInChapter(chapter.number) %}
           {% for article in chapterArticles %}
-          <a href="/articles/{{ article.number }}/"
+          <a href="/{{ article.number }}/"
              class="group block bg-surface-container-lowest rounded-xl p-5 hover:shadow-ambient transition-all">
             <div class="flex items-center gap-4">
               <div class="shrink-0 w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">

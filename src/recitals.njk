@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 pageTitle: Recitals
-permalink: /recitals/
+permalink: /r/
 ---
 
 <div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
@@ -46,7 +46,7 @@ permalink: /recitals/
                 <p class="article-tag">Recital {{ rec.number }}</p>
                 {% set ref = rec.number | articleForRecital(recitalMap) %}
                 {% if ref %}
-                <a href="/articles/{{ ref.article }}/#{{ ref.paragraph }}"
+                <a href="/{{ ref.article }}/#{{ ref.paragraph }}"
                    class="font-label text-xs text-on-surface-variant hover:text-primary transition-colors">
                   → Article {{ ref.article }}{% if ref.paragraph > 0 %}({{ ref.paragraph }}){% endif %}
                 </a>

@@ -3,7 +3,7 @@ pagination:
   data: articles
   size: 1
   alias: article
-permalink: "/articles/{{ article.number }}/"
+permalink: "/{{ article.number }}/"
 layout: base.njk
 eleventyComputed:
   pageTitle: "Article {{ article.number }}{% if article.title %} — {{ article.title }}{% endif %}"
@@ -40,7 +40,7 @@ eleventyComputed:
         <nav id="sidebar-nav" class="flex flex-col gap-1 sidebar-scroll max-h-[70vh] overflow-y-auto">
           {% set sameChapterArticles = articles | articlesInChapter(article.chapter) %}
           {% for art in sameChapterArticles %}
-          <a href="/articles/{{ art.number }}/"
+          <a href="/{{ art.number }}/"
              class="font-label text-sm py-1.5 px-2 rounded-lg transition-colors
                     {% if art.number == article.number %}bg-primary-container text-on-primary-container font-medium
                     {% else %}text-on-surface-variant hover:text-primary hover:bg-surface-container{% endif %}"
@@ -109,7 +109,7 @@ eleventyComputed:
         {% if paraRecitals.length > 0 %}
         <div class="xl:w-56 shrink-0 flex flex-col gap-3">
           {% for rec in paraRecitals %}
-          <a href="/recitals/#recital-{{ rec.number }}"
+          <a href="/r/#recital-{{ rec.number }}"
              class="block bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all group border-l-2 border-primary-fixed-dim">
             <div class="flex items-center justify-between mb-1">
               <p class="font-label text-xs font-medium text-primary">Recital {{ rec.number }}</p>
@@ -130,7 +130,7 @@ eleventyComputed:
       {# Prev / Next navigation #}
       <nav class="mt-12 max-w-3xl flex flex-col sm:flex-row gap-4 justify-between">
         {% if prevArt %}
-        <a href="/articles/{{ prevArt.number }}/"
+        <a href="/{{ prevArt.number }}/"
            class="group flex items-center gap-3 bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all flex-1">
           <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -146,7 +146,7 @@ eleventyComputed:
         <div class="flex-1"></div>
         {% endif %}
         {% if nextArt %}
-        <a href="/articles/{{ nextArt.number }}/"
+        <a href="/{{ nextArt.number }}/"
            class="group flex items-center gap-3 bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all flex-1 sm:text-right sm:flex-row-reverse">
           <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>

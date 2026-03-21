@@ -14,7 +14,7 @@ eleventyExcludeFromCollections: true
   chapter: chapter.roman if chapter else "",
   chapterTitle: chapter.title if chapter else "",
   text: para.text,
-  url: "/articles/" + article.number + "/#" + para.number
+  url: "/" + article.number + "/#" + para.number
 }) %}
 {% for sp in para.subpoints %}
 {% set _ = entries.push({
@@ -25,7 +25,7 @@ eleventyExcludeFromCollections: true
   chapter: chapter.roman if chapter else "",
   chapterTitle: chapter.title if chapter else "",
   text: sp.label + " " + sp.text,
-  url: "/articles/" + article.number + "/#" + para.number
+  url: "/" + article.number + "/#" + para.number
 }) %}
 {% endfor %}
 {% endfor %}
@@ -37,7 +37,7 @@ eleventyExcludeFromCollections: true
   number: rec.number,
   text: rec.text,
   articleRef: ref,
-  url: "/recitals/#recital-" + rec.number
+  url: "/r/#recital-" + rec.number
 }) %}
 {% endfor %}
 {{ entries | dump | safe }}
