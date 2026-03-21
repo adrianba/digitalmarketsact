@@ -227,28 +227,28 @@
       { "name": "LinkedIn", "type": "Online social networking service" }
     ],
     "complianceReports": [
-      { "label": "Compliance report (2026)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report.pdf" },
-      { "label": "Compliance report (2026) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%E2%80%93Windows_Section_2_Annex.pdf" },
-      { "label": "Compliance report (2026) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%e2%80%93LinkedIn_Section_2_Annex.pdf" },
-      { "label": "Compliance report (2025)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft%20DMA%20Compliance%20Report.pdf" },
-      { "label": "Compliance report (2025) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report_Windows_Section_2_Annex.pdf" },
-      { "label": "Compliance report (2025) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report_LinkedIn_Section_2_Annex.pdf" },
-      { "label": "Compliance report (2024)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%209%20-%20Non-Confidential%20Version.pdf" },
-      { "label": "Compliance report (2024) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2010%20-%20Windows%20(Non-Confidential%20Version).pdf" },
-      { "label": "Compliance report (2024) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2011%20-%20LinkedIn%20(Non-Confidential%20Version).pdf" }
+      { "label": "2026", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report.pdf" },
+      { "label": "2026 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%E2%80%93Windows_Section_2_Annex.pdf" },
+      { "label": "2026 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report%e2%80%93LinkedIn_Section_2_Annex.pdf" },
+      { "label": "2025", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft%20DMA%20Compliance%20Report.pdf" },
+      { "label": "2025 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report_Windows_Section_2_Annex.pdf" },
+      { "label": "2025 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Compliance_Report_LinkedIn_Section_2_Annex.pdf" },
+      { "label": "2024", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%209%20-%20Non-Confidential%20Version.pdf" },
+      { "label": "2024 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2010%20-%20Windows%20(Non-Confidential%20Version).pdf" },
+      { "label": "2024 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Compliance%20Report%20-%20Annex%2011%20-%20LinkedIn%20(Non-Confidential%20Version).pdf" }
     ],
     "profilingReports": [
-      { "label": "Consumer profiling report (2026)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report.pdf" },
-      { "label": "Consumer profiling report (2026) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93Windows_Section_2_Annex.pdf" },
-      { "label": "Consumer profiling report (2026) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93LinkedIn_Section_2_Annex.pdf" },
-      { "label": "Consumer profiling report (2025)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft%20DMA%20Consumer%20Profiling%20Report.pdf" },
-      { "label": "Consumer profiling report (2025) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report_Windows_Section_2_Annex.pdf" },
-      { "label": "Consumer profiling report (2025) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%20_LinkedIn_Section_2_Annex.pdf" },
-      { "label": "Consumer profiling report (2024)", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20(Non-Confidential).pdf" },
-      { "label": "Consumer profiling report (2024) — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%201%20-%20Windows%20(Non-Confidential).pdf" },
-      { "label": "Consumer profiling report (2024) — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%202%20-%20LinkedIn%20(Non-Confidential).pdf" },
-      { "label": "Consumer profiling report (2024) — Windows Audit", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%203%20-%20Audit%20Report%20Windows%20(Non-Confidential).pdf" },
-      { "label": "Consumer profiling report (2024) — LinkedIn Audit", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%204%20-%20Audit%20Report%20LinkedIn%20(Non-Confidential).pdf" }
+      { "label": "2026", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report.pdf" },
+      { "label": "2026 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93Windows_Section_2_Annex.pdf" },
+      { "label": "2026 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%E2%80%93LinkedIn_Section_2_Annex.pdf" },
+      { "label": "2025", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft%20DMA%20Consumer%20Profiling%20Report.pdf" },
+      { "label": "2025 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report_Windows_Section_2_Annex.pdf" },
+      { "label": "2025 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/Microsoft_DMA_Consumer_Profiling_Report%20_LinkedIn_Section_2_Annex.pdf" },
+      { "label": "2024", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20(Non-Confidential).pdf" },
+      { "label": "2024 — Windows Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%201%20-%20Windows%20(Non-Confidential).pdf" },
+      { "label": "2024 — LinkedIn Annex", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%202%20-%20LinkedIn%20(Non-Confidential).pdf" },
+      { "label": "2024 — Windows Audit", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%203%20-%20Audit%20Report%20Windows%20(Non-Confidential).pdf" },
+      { "label": "2024 — LinkedIn Audit", "url": "https://www.microsoft.com/content/dam/microsoft/mscle/documents/presentations/DMA.100160%20-%20Microsoft%20Consumer%20Profiling%20Report%20-%20Annex%204%20-%20Audit%20Report%20LinkedIn%20(Non-Confidential).pdf" }
     ]
   }
 ]
