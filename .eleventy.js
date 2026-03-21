@@ -31,7 +31,7 @@ module.exports = function (eleventyConfig) {
       const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/ /g, "(?:\\s|&nbsp;)");
       // Track <a> and data-no-autolink nesting to avoid linking inside
       var inSkip = 0;
-      var re = new RegExp("(<a\\b[^>]*>|<\\/a>|<[^>]+data-no-autolink[^>]*>|<\\/h[1-6]>)|(" + escaped + ")", "gi");
+      var re = new RegExp("(<a\\b[^>]*>|<\\/a>|<title>|<\\/title>|<[^>]+data-no-autolink[^>]*>|<\\/h[1-6]>)|(" + escaped + ")", "gi");
       content = content.replace(re, function (match, tag, text) {
         if (tag) {
           if (tag.startsWith("</")) inSkip = Math.max(0, inSkip - 1);
@@ -50,7 +50,7 @@ module.exports = function (eleventyConfig) {
     if (!(this.page.outputPath || "").endsWith(".html")) return content;
     // Track <a> and data-no-autolink nesting to skip their content
     var inSkip = 0;
-    var result = content.replace(/(<a\b[^>]*>|<\/a>|<[^>]+data-no-autolink[^>]*>|<\/h[1-6]>)|Article(?:&nbsp;|\s)+(\d{1,2})(?:\((\d+)\))?/gi,
+    var result = content.replace(/(<a\b[^>]*>|<\/a>|<title>|<\/title>|<[^>]+data-no-autolink[^>]*>|<\/h[1-6]>)|Article(?:&nbsp;|\s)+(\d{1,2})(?:\((\d+)\))?/gi,
       function (match, tag, artStr, paraStr) {
         if (tag) {
           if (tag.startsWith("</")) inSkip = Math.max(0, inSkip - 1);
