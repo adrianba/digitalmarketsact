@@ -1,0 +1,7 @@
+node_modules
+_site
+.git
+.gitignore
+design.zip
+*.log
+.DS_Store
