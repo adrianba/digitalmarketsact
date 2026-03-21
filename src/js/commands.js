@@ -389,14 +389,13 @@
       return;
     }
 
-    // Icon mode: prepend a small link icon to the left of content
+    // Icon mode: position a link icon to the left of content
     el.classList.add("permalink-parent");
-    var target = el.querySelector(".permalink-anchor") || el;
-    if (target.tagName === "P" || target.tagName === "H1" || target.tagName === "H2" || target.tagName === "H3" || target.tagName === "DIV") {
-      target.style.display = "inline-flex";
-      target.style.alignItems = "center";
-    }
+    el.style.position = "relative";
     var btn = createPermalinkBtn(path);
-    target.insertBefore(btn, target.firstChild);
+    btn.style.position = "absolute";
+    btn.style.left = "-1.5rem";
+    btn.style.top = "0.25rem";
+    el.insertBefore(btn, el.firstChild);
   });
 })();
