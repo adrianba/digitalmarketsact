@@ -160,10 +160,10 @@
     });
   }
 
-  // --- Go to Article (Ctrl+G) ---
-  async function openGotoArticle() {
+  // --- Go to Article or Recital (Ctrl+G) ---
+  async function openGoto() {
     await ensureData();
-    // Build article list for preview
+    // Build article list
     const artMap = {};
     for (const e of articles) {
       if (!artMap[e.article]) {
@@ -175,36 +175,78 @@
     }
     const artList = Object.values(artMap).sort(function (a, b) { return a.number - b.number; });
 
-    openModal("dma-goto-article", "Go to Article", "Ctrl+G", 'e.g. "5" or "5.9" or "5 9"', function (query, overlay) {
-      const results = overlay.querySelector(".dma-modal-results");
-      const q = query.trim();
+    // Build recital list
+    const recList = recitals
+      .reduce(function (acc, e) {
+        if (!acc.find(function (x) { return x.number === e.number; })) acc.push(e);
+        return acc;
+      }, [])
+      .sort(function (a, b) { return a.number - b.number; });
 
-      // Parse input
-      let artNum = null;
-      let paraNum = null;
-      const match = q.match(/^(\d+)(?:[.\s]+(\d+))?$/);
-      if (match) {
-        artNum = parseInt(match[1], 10);
-        paraNum = match[2] ? parseInt(match[2], 10) : null;
-      }
+    openModal("dma-goto", "Go to", "Ctrl+G", 'e.g. "5", "5.9", or "r36" for recital', function (query, overlay) {
+      var results = overlay.querySelector(".dma-modal-results");
+      var q = query.trim();
 
-      // Filter articles
-      let filtered = artList;
-      if (artNum !== null) {
-        filtered = artList.filter(function (a) { return String(a.number).startsWith(String(artNum)); });
-      }
-
-      if (filtered.length === 0) {
-        results.innerHTML = '<div class="dma-result-hint">No matching article</div>';
+      // Detect recital mode: starts with "r" or "R"
+      var recMatch = q.match(/^[rR]\s*(\d*)$/);
+      if (recMatch !== null) {
+        var recNum = recMatch[1];
+        var filtered = recList;
+        if (recNum) {
+          filtered = recList.filter(function (r) { return String(r.number).startsWith(recNum); });
+        }
+        if (filtered.length === 0) {
+          results.innerHTML = '<div class="dma-result-hint">No matching recital</div>';
+          return;
+        }
+        results.innerHTML = filtered
+          .slice(0, 20)
+          .map(function (r, i) {
+            var artRef = r.articleRef
+              ? " → Art. " + r.articleRef.article + (r.articleRef.paragraph > 0 ? "(" + r.articleRef.paragraph + ")" : "")
+              : "";
+            var snippet = r.text ? r.text.substring(0, 120) + (r.text.length > 120 ? "…" : "") : "";
+            return (
+              '<div class="dma-result-item' + (i === 0 ? " selected" : "") + '">' +
+              '<a href="' + r.url + '">' +
+              '<div class="dma-result-label">' +
+              '<span class="dma-result-num">Recital ' + r.number + "</span>" +
+              '<span class="dma-result-chapter">' + escapeHtml(artRef) + "</span>" +
+              "</div>" +
+              '<div class="dma-result-snippet">' + escapeHtml(snippet) + "</div>" +
+              "</a></div>"
+            );
+          })
+          .join("");
+        overlay._selectedIdx = 0;
         return;
       }
 
-      results.innerHTML = filtered
+      // Article mode
+      var artNum = null;
+      var paraNum = null;
+      var artMatch = q.match(/^(\d+)(?:[.\s]+(\d+))?$/);
+      if (artMatch) {
+        artNum = parseInt(artMatch[1], 10);
+        paraNum = artMatch[2] ? parseInt(artMatch[2], 10) : null;
+      }
+
+      var artFiltered = artList;
+      if (artNum !== null) {
+        artFiltered = artList.filter(function (a) { return String(a.number).startsWith(String(artNum)); });
+      }
+
+      if (q && artFiltered.length === 0) {
+        results.innerHTML = '<div class="dma-result-hint">No matching article. Type <strong>r</strong> for recitals.</div>';
+        return;
+      }
+
+      results.innerHTML = artFiltered
         .slice(0, 20)
         .map(function (a, i) {
-          const isExact = a.number === artNum;
-          const url = "/articles/" + a.number + "/" + (paraNum ? "#para-" + paraNum : "");
-          const paraPreview =
+          var isExact = a.number === artNum;
+          var url = "/articles/" + a.number + "/" + (paraNum ? "#para-" + paraNum : "");
+          var paraPreview =
             isExact && a.paragraphs.length > 0
               ? '<div class="dma-result-paras">' +
                 a.paragraphs
@@ -215,9 +257,8 @@
                   .join("") +
                 "</div>"
               : "";
-          const selected = i === 0 ? " selected" : "";
           return (
-            '<div class="dma-result-item' + selected + '">' +
+            '<div class="dma-result-item' + (i === 0 ? " selected" : "") + '">' +
             '<a href="' + url + '">' +
             '<div class="dma-result-label">' +
             '<span class="dma-result-num">Art. ' + a.number + "</span> " +
@@ -225,56 +266,6 @@
             '<span class="dma-result-chapter">Ch. ' + a.chapter + "</span>" +
             "</div>" +
             paraPreview +
-            "</a></div>"
-          );
-        })
-        .join("");
-      overlay._selectedIdx = 0;
-    });
-  }
-
-  // --- Go to Recital (Ctrl+H) ---
-  async function openGotoRecital() {
-    await ensureData();
-    const recList = recitals
-      .reduce(function (acc, e) {
-        if (!acc.find(function (x) { return x.number === e.number; })) {
-          acc.push(e);
-        }
-        return acc;
-      }, [])
-      .sort(function (a, b) { return a.number - b.number; });
-
-    openModal("dma-goto-recital", "Go to Recital", "Ctrl+H", "Type recital number…", function (query, overlay) {
-      const results = overlay.querySelector(".dma-modal-results");
-      const q = query.trim();
-      let filtered = recList;
-      if (q) {
-        filtered = recList.filter(function (r) { return String(r.number).startsWith(q); });
-      }
-
-      if (filtered.length === 0) {
-        results.innerHTML = '<div class="dma-result-hint">No matching recital</div>';
-        return;
-      }
-
-      results.innerHTML = filtered
-        .slice(0, 20)
-        .map(function (r, i) {
-          const artRef =
-            r.articleRef
-              ? " → Art. " + r.articleRef.article + (r.articleRef.paragraph > 0 ? "(" + r.articleRef.paragraph + ")" : "")
-              : "";
-          const snippet = r.text ? r.text.substring(0, 120) + (r.text.length > 120 ? "…" : "") : "";
-          const selected = i === 0 ? " selected" : "";
-          return (
-            '<div class="dma-result-item' + selected + '">' +
-            '<a href="' + r.url + '">' +
-            '<div class="dma-result-label">' +
-            '<span class="dma-result-num">Recital ' + r.number + "</span>" +
-            '<span class="dma-result-chapter">' + escapeHtml(artRef) + "</span>" +
-            "</div>" +
-            '<div class="dma-result-snippet">' + escapeHtml(snippet) + "</div>" +
             "</a></div>"
           );
         })
@@ -293,14 +284,10 @@
       openSearch();
     } else if ((e.ctrlKey || e.metaKey) && e.key === "g") {
       e.preventDefault();
-      openGotoArticle();
-    } else if ((e.ctrlKey || e.metaKey) && e.key === "h") {
-      e.preventDefault();
-      openGotoRecital();
+      openGoto();
     } else if (e.key === "Escape") {
       closeModal("dma-search");
-      closeModal("dma-goto-article");
-      closeModal("dma-goto-recital");
+      closeModal("dma-goto");
     }
   });
 
