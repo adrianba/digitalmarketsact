@@ -1,0 +1,121 @@
+[
+  {
+    "name": "Alphabet Inc.",
+    "slug": "alphabet",
+    "designated": "2023-09-06",
+    "services": [
+      { "name": "Google Search", "type": "Online search engine" },
+      { "name": "Google Maps", "type": "Online intermediation service" },
+      { "name": "Google Play", "type": "Online intermediation service" },
+      { "name": "Google Shopping", "type": "Online intermediation service" },
+      { "name": "Google Ads", "type": "Online advertising service" },
+      { "name": "YouTube", "type": "Video-sharing platform service" },
+      { "name": "Android", "type": "Operating system" },
+      { "name": "Chrome", "type": "Web browser" },
+      { "name": "Gmail", "type": "Number-independent interpersonal communications service" }
+    ],
+    "complianceReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+    ],
+    "profilingReports": [
+      { "label": "Consumer profiling report", "url": "https://transparencyreport.google.com/report-downloads" }
+    ]
+  },
+  {
+    "name": "Amazon.com, Inc.",
+    "slug": "amazon",
+    "designated": "2023-09-06",
+    "services": [
+      { "name": "Amazon Marketplace", "type": "Online intermediation service" },
+      { "name": "Amazon Ads", "type": "Online advertising service" }
+    ],
+    "complianceReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+    ],
+    "profilingReports": [
+      { "label": "Consumer profiling report", "url": "https://www.aboutamazon.eu/news/policy/amazon-and-the-digital-markets-act" }
+    ]
+  },
+  {
+    "name": "Apple Inc.",
+    "slug": "apple",
+    "designated": "2023-09-06",
+    "undesignatedNote": "iPadOS designated 2024-04-29",
+    "services": [
+      { "name": "App Store", "type": "Online intermediation service" },
+      { "name": "Safari", "type": "Web browser" },
+      { "name": "iOS", "type": "Operating system" },
+      { "name": "iPadOS", "type": "Operating system" }
+    ],
+    "complianceReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+    ],
+    "profilingReports": [
+      { "label": "Consumer profiling report", "url": "https://www.apple.com/legal/privacy/en-ww/personalized-user-experiences/" }
+    ]
+  },
+  {
+    "name": "Booking Holdings Inc.",
+    "slug": "booking",
+    "designated": "2024-05-13",
+    "services": [
+      { "name": "Booking.com", "type": "Online intermediation service" }
+    ],
+    "complianceReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+    ],
+    "profilingReports": [
+      { "label": "Consumer profiling report (2024)", "url": "https://www.bookingholdings.com/wp-content/uploads/2024/11/DMA-Consumer-Profiling-Report.pdf" },
+      { "label": "Consumer profiling report (November 2025)", "url": "https://www.bookingholdings.com/wp-content/uploads/2025/11/2025-DMA-Consumer-Profiling-Report-.pdf" }
+    ]
+  },
+  {
+    "name": "ByteDance Ltd.",
+    "slug": "bytedance",
+    "designated": "2023-09-06",
+    "services": [
+      { "name": "TikTok", "type": "Online social networking service" }
+    ],
+    "complianceReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+    ],
+    "profilingReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add consumer profiling report URL" }
+    ]
+  },
+  {
+    "name": "Meta Platforms, Inc.",
+    "slug": "meta",
+    "designated": "2023-09-06",
+    "undesignatedNote": "Facebook Marketplace undesignated 2025-04-23",
+    "services": [
+      { "name": "Facebook", "type": "Online social networking service" },
+      { "name": "Instagram", "type": "Online social networking service" },
+      { "name": "WhatsApp", "type": "Number-independent interpersonal communications service" },
+      { "name": "Messenger", "type": "Number-independent interpersonal communications service" },
+      { "name": "Meta Ads", "type": "Online advertising service" }
+    ],
+    "complianceReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+    ],
+    "profilingReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add consumer profiling report URL" }
+    ]
+  },
+  {
+    "name": "Microsoft Corporation",
+    "slug": "microsoft",
+    "designated": "2023-09-06",
+    "services": [
+      { "name": "Windows", "type": "Operating system" },
+      { "name": "LinkedIn", "type": "Online social networking service" }
+    ],
+    "complianceReports": [
+      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+    ],
+    "profilingReports": [
+      { "label": "Consumer profiling report (latest)", "url": "https://www.microsoft.com/en-us/legal/compliance/dmacompliance" },
+      { "label": "Consumer profiling report (previous)", "url": "https://www.microsoft.com/en-us/legal/compliance/dmacomplianceresourcesandreports" }
+    ]
+  }
+]

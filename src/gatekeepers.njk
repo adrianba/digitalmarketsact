@@ -1,0 +1,106 @@
+---
+layout: base.njk
+pageTitle: Designated Gatekeepers
+permalink: /g/
+---
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-10">
+  {# Header #}
+  <div class="mb-10">
+    <p class="article-tag mb-2">Digital Markets Act</p>
+    <h1 class="font-headline font-bold text-3xl md:text-4xl text-on-surface mb-3">Designated Gatekeepers</h1>
+    <p class="font-body text-lg text-on-surface-variant max-w-2xl">
+      The European Commission has designated {{ gatekeepers.length }} gatekeepers under the DMA, covering 23 core platform services.
+    </p>
+  </div>
+
+  {# Designation overview image #}
+  <div class="mb-12">
+    <img src="https://digital-markets-act.ec.europa.eu/sites/default/files/styles/embed_large_2x/public/2025-04/DMA_designations_2025update.jpg?itok=KrJJX3is"
+         alt="DMA Designations 2025 Update"
+         class="rounded-xl shadow-ambient max-w-full">
+    <p class="font-label text-xs text-on-surface-variant mt-2">
+      Source: <a href="https://digital-markets-act.ec.europa.eu/gatekeepers_en" class="recital-ref" target="_blank" rel="noopener">European Commission — DMA Gatekeepers</a>
+    </p>
+  </div>
+
+  {# Gatekeeper list #}
+  <div class="flex flex-col lg:flex-row gap-10">
+    {# Left sidebar — quick nav #}
+    <aside class="hidden lg:block w-48 shrink-0">
+      <div class="sticky top-6">
+        <p class="article-tag mb-4">Gatekeepers</p>
+        <nav class="flex flex-col gap-2">
+          {% for gk in gatekeepers %}
+          <a href="#{{ gk.slug }}"
+             class="font-label text-sm text-on-surface-variant hover:text-primary transition-colors py-1">
+            {{ gk.name | replace(" Inc.", "") | replace(" Ltd.", "") | replace(".com, Inc.", "") | replace(" Corporation", "") | replace(" Platforms, Inc.", "") | replace(" Holdings Inc.", "") }}
+          </a>
+          {% endfor %}
+        </nav>
+      </div>
+    </aside>
+
+    {# Main content #}
+    <div class="flex-1 min-w-0 max-w-3xl">
+      {% for gk in gatekeepers %}
+      <section id="{{ gk.slug }}" class="mb-12 scroll-mt-6">
+        <div class="bg-surface-container-lowest rounded-xl p-6">
+          {# Gatekeeper header #}
+          <div class="mb-4">
+            <h2 class="font-headline font-bold text-xl text-on-surface">{{ gk.name }}</h2>
+            <p class="font-label text-xs text-on-surface-variant mt-1">
+              Designated {{ gk.designated }}
+              {% if gk.undesignatedNote %} · {{ gk.undesignatedNote }}{% endif %}
+            </p>
+          </div>
+
+          {# Designated services #}
+          <div class="mb-5">
+            <p class="article-tag mb-2">Designated Services</p>
+            <div class="flex flex-wrap gap-2">
+              {% for svc in gk.services %}
+              <div class="bg-surface-container rounded-lg px-3 py-1.5">
+                <span class="font-label text-sm font-medium text-on-surface">{{ svc.name }}</span>
+                <span class="font-label text-xs text-on-surface-variant ml-1">{{ svc.type }}</span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+          {# Reports #}
+          <div class="flex flex-col md:flex-row gap-6">
+            {# Compliance reports #}
+            <div class="flex-1">
+              <p class="article-tag mb-2">Compliance Reports</p>
+              {% for report in gk.complianceReports %}
+              <div class="mb-2">
+                {% if report.url == "#" %}
+                <span class="font-body text-sm text-on-surface-variant italic">{{ report.note }}</span>
+                {% else %}
+                <a href="{{ report.url }}" class="recital-ref font-body text-sm" target="_blank" rel="noopener">{{ report.label }}</a>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+
+            {# Consumer profiling reports #}
+            <div class="flex-1">
+              <p class="article-tag mb-2">Consumer Profiling Reports</p>
+              {% for report in gk.profilingReports %}
+              <div class="mb-2">
+                {% if report.url == "#" %}
+                <span class="font-body text-sm text-on-surface-variant italic">{{ report.note }}</span>
+                {% else %}
+                <a href="{{ report.url }}" class="recital-ref font-body text-sm" target="_blank" rel="noopener">{{ report.label }}</a>
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endfor %}
+    </div>
+  </div>
+</div>
