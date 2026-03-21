@@ -3,6 +3,39 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // Auto-link EU legislation references to EUR-Lex
+  const defined_celex = {
+    "Regulation (EU) 2016/679": "32016R0679",
+    "Regulation (EU) 2018/1725": "32018R1725",
+    "Regulation (EU) 2019/1150": "32019R1150",
+    "Regulation (EU) 2022/1925": "32022R1925",
+    "Regulation (EU) No 182/2011": "32011R0182",
+    "Regulation (EC) No 1/2003": "32003R0001",
+    "Regulation (EC) No 139/2004": "32004R0139",
+    "Directive 2002/58": "32002L0058",
+    "Directive 2010/13": "32010L0013",
+    "Directive (EU) 2015/1535": "32015L1535",
+    "Directive (EU) 2015/2366": "32015L2366",
+    "Directive (EU) 2016/1148": "32016L1148",
+    "Directive (EU) 2016/2102": "32016L2102",
+    "Directive (EU) 2018/1972": "32018L1972",
+    "Directive (EU) 2019/882": "32019L0882",
+    "Directive (EU) 2019/1937": "32019L1937",
+    "Directive (EU) 2020/1828": "32020L1828",
+  };
+
+  eleventyConfig.addTransform("linkLegislation", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    for (const [name, celex] of Object.entries(defined_celex)) {
+      const url = "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:" + celex;
+      // Match the name with optional &nbsp; for spaces, but not already inside a link
+      const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/ /g, "(?:\\s|&nbsp;)");
+      const re = new RegExp("(?<!<a[^>]*>)(" + escaped + ")(?![^<]*<\\/a>)", "g");
+      content = content.replace(re, '<a href="' + url + '" class="recital-ref" target="_blank" rel="noopener">$1</a>');
+    }
+    return content;
+  });
+
   // Make data available globally
   eleventyConfig.addGlobalData("site", {
     title: "Digital Markets Act",
