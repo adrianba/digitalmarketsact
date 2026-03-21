@@ -12,6 +12,13 @@
       <nav class="hidden md:flex items-center gap-8">
         <a href="/" class="font-label text-sm font-medium text-on-surface-variant hover:text-primary transition-colors{% if page.url == '/' %} text-primary{% endif %}">Articles</a>
         <a href="/recitals/" class="font-label text-sm font-medium text-on-surface-variant hover:text-primary transition-colors{% if page.url == '/recitals/' %} text-primary{% endif %}">Recitals</a>
+        <button id="search-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-primary transition-colors font-label text-sm" aria-label="Search">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <span class="hidden lg:inline">Search</span>
+          <kbd class="hidden lg:inline text-xs px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant">⌘F</kbd>
+        </button>
       </nav>
       {# Mobile menu button #}
       <button id="mobile-menu-btn" class="md:hidden p-2 text-on-surface-variant hover:text-primary" aria-label="Menu">

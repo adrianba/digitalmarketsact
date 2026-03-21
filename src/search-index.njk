@@ -1,0 +1,43 @@
+---
+permalink: /search-index.json
+eleventyExcludeFromCollections: true
+---
+{% set entries = [] %}
+{% for article in articles %}
+{% for para in article.paragraphs %}
+{% set chapter = chapters | findChapter(article.chapter) %}
+{% set _ = entries.push({
+  type: "article",
+  article: article.number,
+  paragraph: para.number,
+  title: article.title,
+  chapter: chapter.roman if chapter else "",
+  chapterTitle: chapter.title if chapter else "",
+  text: para.text,
+  url: "/articles/" + article.number + "/#para-" + para.number
+}) %}
+{% for sp in para.subpoints %}
+{% set _ = entries.push({
+  type: "article",
+  article: article.number,
+  paragraph: para.number,
+  title: article.title,
+  chapter: chapter.roman if chapter else "",
+  chapterTitle: chapter.title if chapter else "",
+  text: sp.text,
+  url: "/articles/" + article.number + "/#para-" + para.number
+}) %}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+{% for rec in recitals %}
+{% set ref = rec.number | articleForRecital(recitalMap) %}
+{% set _ = entries.push({
+  type: "recital",
+  number: rec.number,
+  text: rec.text,
+  articleRef: ref,
+  url: "/recitals/#recital-" + rec.number
+}) %}
+{% endfor %}
+{{ entries | dump | safe }}
