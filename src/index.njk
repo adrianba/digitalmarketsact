@@ -59,6 +59,11 @@ pageTitle: Articles
                   {{ article.title }}
                 </h3>
                 {% endif %}
+                {% if article.paragraphs.length > 0 %}
+                <p class="text-sm text-on-surface-variant font-label">
+                  {{ article.paragraphs.length }} paragraph{{ "s" if article.paragraphs.length != 1 }}
+                </p>
+                {% endif %}
               </div>
               <div class="shrink-0 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-primary">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
