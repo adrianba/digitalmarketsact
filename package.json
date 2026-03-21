@@ -9,6 +9,7 @@
     "build": "npm run build:11ty && npm run build:css",
     "dev:css": "npx @tailwindcss/cli -i src/css/main.css -o _site/css/style.css --watch",
     "dev:11ty": "npx @11ty/eleventy --serve",
+    "dev": "concurrently -n 11ty,css -c blue,magenta \"npm run dev:11ty\" \"npm run dev:css\"",
     "scrape": "node scripts/scrape-dma.js"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "@tailwindcss/cli": "^4.2.2",
     "autoprefixer": "^10.4.27",
     "cheerio": "^1.2.0",
+    "concurrently": "^9.2.1",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.2"
   }

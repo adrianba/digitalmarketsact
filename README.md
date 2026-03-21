@@ -32,12 +32,10 @@ npm run build
 To develop with live reload:
 
 ```bash
-# In one terminal — Eleventy dev server
-npm run dev:11ty
-
-# In another terminal — Tailwind CSS watcher
-npm run dev:css
+npm run dev
 ```
+
+This runs Eleventy's dev server and Tailwind's CSS watcher concurrently.
 
 ## Project Structure
 
@@ -100,8 +98,9 @@ This runs `scripts/scrape-dma.js`, which parses `scripts/dma-raw.html` and write
 | `npm run build` | Full production build (Eleventy + Tailwind) |
 | `npm run build:11ty` | Build Eleventy templates only |
 | `npm run build:css` | Build and minify Tailwind CSS only |
-| `npm run dev:11ty` | Eleventy dev server with live reload |
-| `npm run dev:css` | Tailwind CSS watch mode |
+| `npm run dev` | Run Eleventy + Tailwind concurrently with live reload |
+| `npm run dev:11ty` | Eleventy dev server only |
+| `npm run dev:css` | Tailwind CSS watch mode only |
 | `npm run scrape` | Re-parse DMA HTML into JSON data files |
 
 ## License
