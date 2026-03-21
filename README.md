@@ -18,7 +18,7 @@ A clean, navigable website for browsing the full text of the [Digital Markets Ac
 - [Eleventy](https://www.11ty.dev/) (v3) — static site generator with Nunjucks templates
 - [Tailwind CSS](https://tailwindcss.com/) (v4) — locally generated via `@tailwindcss/cli`
 - [Manrope](https://fonts.google.com/specimen/Manrope) + [Newsreader](https://fonts.google.com/specimen/Newsreader) — headings and legal body text
-- Design system based on `design.zip` (see `stitch/lex_scripta/DESIGN.md` inside the archive)
+- Design system based on DESIGN.md (Manrope + Newsreader, tonal layering, "Modern Archivist" aesthetic)
 
 ## Getting Started
 
@@ -72,7 +72,6 @@ This runs Eleventy's dev server and Tailwind's CSS watcher concurrently.
 │   ├── search-index.njk      # Generates /search-index.json at build time
 │   ├── index.njk             # Home page — chapter-grouped article listing
 │   └── recitals.njk          # Recitals listing page
-├── design.zip                # Design reference (mockups + DESIGN.md)
 └── _site/                    # Built output (gitignored)
 ```
 
