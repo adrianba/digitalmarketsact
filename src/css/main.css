@@ -158,7 +158,7 @@ a, button, [role="button"], input, select, textarea {
   cursor: pointer;
   transition: opacity 200ms ease, color 200ms ease, background-color 200ms ease;
   vertical-align: middle;
-  margin-left: 0.35rem;
+  margin-right: 0.35rem;
   position: relative;
   border: none;
   background: transparent;
@@ -172,6 +172,15 @@ a, button, [role="button"], input, select, textarea {
 .permalink-parent:hover .permalink-btn,
 .permalink-btn:focus-visible {
   opacity: 1;
+}
+/* Badge icon shown on hover (white for dark background) */
+.permalink-badge-swap {
+  align-items: center;
+  justify-content: center;
+}
+.permalink-badge-icon {
+  color: var(--color-on-primary);
+  stroke: var(--color-on-primary);
 }
 .permalink-toast {
   position: absolute;

@@ -329,18 +329,18 @@
 
   // --- Permalink copy-to-clipboard ---
   var PERMALINK_HOST = "https://dma.bz";
-  var linkSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+  var linkSvg14 = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
+  var linkSvgBadge = '<svg class="permalink-badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
 
   function createPermalinkBtn(path) {
     var btn = document.createElement("button");
     btn.className = "permalink-btn";
     btn.setAttribute("aria-label", "Copy permalink");
-    btn.innerHTML = linkSvg + '<span class="permalink-toast">Copied</span>';
+    btn.innerHTML = linkSvg14 + '<span class="permalink-toast">Copied</span>';
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
-      var url = PERMALINK_HOST + path;
-      navigator.clipboard.writeText(url).then(function () {
+      navigator.clipboard.writeText(PERMALINK_HOST + path).then(function () {
         var toast = btn.querySelector(".permalink-toast");
         toast.classList.add("show");
         setTimeout(function () { toast.classList.remove("show"); }, 1500);
@@ -353,13 +353,31 @@
   document.querySelectorAll("[data-permalink]").forEach(function (el) {
     var path = el.getAttribute("data-permalink");
 
-    // Badge mode: the element itself acts as the copy button (e.g. number badges)
+    // Badge mode: swap number for link icon on hover
     if (el.hasAttribute("data-permalink-badge")) {
       el.style.position = "relative";
+      var numSpan = el.querySelector("span");
+      // Insert link icon (hidden by default)
+      var iconWrapper = document.createElement("span");
+      iconWrapper.className = "permalink-badge-swap";
+      iconWrapper.style.display = "none";
+      iconWrapper.innerHTML = linkSvgBadge;
+      el.appendChild(iconWrapper);
+      // Toast
       var toast = document.createElement("span");
       toast.className = "permalink-toast";
       toast.textContent = "Copied";
       el.appendChild(toast);
+      // Hover: swap number ↔ icon
+      el.addEventListener("mouseenter", function () {
+        if (numSpan) numSpan.style.display = "none";
+        iconWrapper.style.display = "flex";
+      });
+      el.addEventListener("mouseleave", function () {
+        if (numSpan) numSpan.style.display = "";
+        iconWrapper.style.display = "none";
+      });
+      // Click
       el.addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -371,13 +389,14 @@
       return;
     }
 
-    // Icon mode: append a small link icon button
+    // Icon mode: prepend a small link icon to the left of content
     el.classList.add("permalink-parent");
     var target = el.querySelector(".permalink-anchor") || el;
     if (target.tagName === "P" || target.tagName === "H1" || target.tagName === "H2" || target.tagName === "H3" || target.tagName === "DIV") {
       target.style.display = "inline-flex";
       target.style.alignItems = "center";
     }
-    target.appendChild(createPermalinkBtn(path));
+    var btn = createPermalinkBtn(path);
+    target.insertBefore(btn, target.firstChild);
   });
 })();
