@@ -48,21 +48,16 @@ pageTitle: Articles
           {% for article in chapterArticles %}
           <a href="/articles/{{ article.number }}/"
              class="group block bg-surface-container-lowest rounded-xl p-5 hover:shadow-ambient transition-all">
-            <div class="flex items-start gap-4">
+            <div class="flex items-center gap-4">
               <div class="shrink-0 w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">
                 <span class="font-headline font-bold text-on-primary-container text-sm">{{ article.number }}</span>
               </div>
               <div class="min-w-0">
-                <p class="article-tag mb-1">Article {{ article.number }}</p>
+                <p class="article-tag">Article {{ article.number }}</p>
                 {% if article.title %}
-                <h3 class="font-headline font-semibold text-base text-on-surface group-hover:text-primary transition-colors">
+                <h3 class="font-headline font-semibold text-base text-on-surface group-hover:text-primary transition-colors leading-tight">
                   {{ article.title }}
                 </h3>
-                {% endif %}
-                {% if article.paragraphs.length > 0 %}
-                <p class="text-sm text-on-surface-variant mt-1 font-label">
-                  {{ article.paragraphs.length }} paragraph{{ "s" if article.paragraphs.length != 1 }}
-                </p>
                 {% endif %}
               </div>
               <div class="shrink-0 ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-primary">
