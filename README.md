@@ -9,8 +9,7 @@ A clean, navigable website for browsing the full text of the [Digital Markets Ac
 - **Inline recitals** — Related recitals shown next to the paragraph they apply to (109 recitals mapped to articles)
 - **Recitals page** — All 109 recitals with back-links to their corresponding article paragraph
 - **Gatekeepers page** — 7 designated gatekeepers with their core platform services, compliance reports, and consumer profiling reports
-- **Search** (`Ctrl+F`) — Full-text search across articles, recitals, and gatekeepers
-- **Go to** (`Ctrl+G`) — Quick navigation: type `5` for Article 5, `5.9` for Article 5 ¶9, or `r36` for Recital 36
+- **Command palette** (`Ctrl+F` / `Ctrl+G`) — Unified search and navigation: type `5` to go to Article 5, `5.9` for Article 5 ¶9, `r36` for Recital 36, or any text to search across articles, recitals, and gatekeepers
 - **Auto-linked references** — Cross-references to other DMA articles link to those pages; EU legislation references (GDPR, ePrivacy Directive, etc.) link to EUR-Lex
 - **Permalink copy** — Hover over any article, paragraph, recital, or gatekeeper heading to reveal a link icon; click to copy a short `dma.bz` permalink to clipboard
 - **Responsive design** — Mobile navigation with collapsible menu; desktop layout with sidebar
