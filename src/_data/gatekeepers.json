@@ -15,17 +15,17 @@
     ],
     "complianceReports": [
       {
-        "label": "Compliance report (2026)",
+        "label": "2026",
         "url": "https://storage.googleapis.com/transparencyreport/report-downloads/pdf-report-bb_2025-3-7_2026-3-6_en_v1.pdf"
       },
       {
-        "label": "Compliance report (2025)",
+        "label": "2025",
         "url": "https://storage.googleapis.com/transparencyreport/report-downloads/pdf-report-bb_2024-3-7_2025-3-6_en_v1.pdf"
       }
     ],
     "profilingReports": [
       {
-        "label": "Consumer profiling report (2026)",
+        "label": "2026",
         "url": "https://storage.googleapis.com/transparencyreport/report-downloads/pdf-report-aa_2025-11-1_2025-11-1_en_GB_v1.pdf"
       }
     ]
@@ -39,21 +39,60 @@
       { "name": "Amazon Ads", "type": "Online advertising service" }
     ],
     "complianceReports": [
-      { "label": "Compliance report (2026)", "url": "https://assets.aboutamazon.com/b0/54/a0a5212848ab9ff4b3e452be21aa/2026-compliance-report.pdf" },
-      { "label": "Compliance report (2026) — Annex 1", "url": "https://assets.aboutamazon.com/81/de/e7c5d2d04d3ba86e2c65219654c9/2026-compliance-report-annex-1.pdf" },
-      { "label": "Compliance report (2026) — Annex 2", "url": "https://assets.aboutamazon.com/1a/7f/e35162ec4f9d88921e3499709f5e/2026-compliance-report-annex-2.pdf" },
-      { "label": "Compliance report (2025)", "url": "https://assets.aboutamazon.com/4a/61/7e24a2cb48e785ba58c428cf32a7/amazon-compliance-report-2025.pdf" },
-      { "label": "Compliance report (2025) — Annex 1", "url": "https://assets.aboutamazon.com/50/7b/92fca0af4323afd758ebd636b4db/amazon-compliance-report-2025-annex-1.pdf" },
-      { "label": "Compliance report (2025) — Annex 2", "url": "https://assets.aboutamazon.com/7c/a8/bdf8ffcc46e987ad8e5dcfe7146b/amazon-compliance-report-2025-annex-2.pdf" },
-      { "label": "Compliance report (2024)", "url": "https://assets.aboutamazon.com/a8/33/e931dab5407bae69a8f21b31d2ad/amazon-dma-compliance-report.pdf" }
+      {
+        "label": "2026",
+        "url": "https://assets.aboutamazon.com/b0/54/a0a5212848ab9ff4b3e452be21aa/2026-compliance-report.pdf"
+      },
+      {
+        "label": "2026 — Annex 1 - Amazon Store",
+        "url": "https://assets.aboutamazon.com/81/de/e7c5d2d04d3ba86e2c65219654c9/2026-compliance-report-annex-1.pdf"
+      },
+      {
+        "label": "2026 — Annex 2 - Amazon Ads",
+        "url": "https://assets.aboutamazon.com/1a/7f/e35162ec4f9d88921e3499709f5e/2026-compliance-report-annex-2.pdf"
+      },
+      {
+        "label": "2025",
+        "url": "https://assets.aboutamazon.com/4a/61/7e24a2cb48e785ba58c428cf32a7/amazon-compliance-report-2025.pdf"
+      },
+      {
+        "label": "2025 — Annex 1 - Amazon Store",
+        "url": "https://assets.aboutamazon.com/50/7b/92fca0af4323afd758ebd636b4db/amazon-compliance-report-2025-annex-1.pdf"
+      },
+      {
+        "label": "2025 — Annex 2 - Amazon Ads",
+        "url": "https://assets.aboutamazon.com/7c/a8/bdf8ffcc46e987ad8e5dcfe7146b/amazon-compliance-report-2025-annex-2.pdf"
+      },
+      {
+        "label": "2024",
+        "url": "https://assets.aboutamazon.com/a8/33/e931dab5407bae69a8f21b31d2ad/amazon-dma-compliance-report.pdf"
+      }
     ],
     "profilingReports": [
-      { "label": "Consumer profiling report (2026)", "url": "https://assets.aboutamazon.com/21/bb/6da7410948808d037d73ef5f4b7f/2026-profiling-report.pdf" },
-      { "label": "Consumer profiling report (2026) — Annex 1", "url": "https://assets.aboutamazon.com/a9/31/f219bcb24450adaaf39d2d96e0ee/2026-profiling-report-annex-1.pdf" },
-      { "label": "Consumer profiling report (2026) — Annex 2", "url": "https://assets.aboutamazon.com/ad/a8/8976f31c4777a8c100ff1933123b/2026-profiling-report-annex-2.pdf" },
-      { "label": "Consumer profiling report (2025)", "url": "https://assets.aboutamazon.com/9c/04/6d809ce7489c86e25d5a8755e68b/amazon-profiling-report-2025.pdf" },
-      { "label": "Consumer profiling report (2025) — Annex 1", "url": "https://assets.aboutamazon.com/fd/99/be739fe6492894f5f22af34a6ab6/amazon-profiling-report-2025-annex-1.pdf" },
-      { "label": "Consumer profiling report (2025) — Annex 2", "url": "https://assets.aboutamazon.com/64/ae/fd140e7e4db9931f27a100ff4071/amazon-profiling-report-2025-annex-2.pdf" }
+      {
+        "label": "2026",
+        "url": "https://assets.aboutamazon.com/21/bb/6da7410948808d037d73ef5f4b7f/2026-profiling-report.pdf"
+      },
+      {
+        "label": "2026 — Annex 1 - Amazon Store",
+        "url": "https://assets.aboutamazon.com/a9/31/f219bcb24450adaaf39d2d96e0ee/2026-profiling-report-annex-1.pdf"
+      },
+      {
+        "label": "2026 — Annex 2 - Amazon Ads",
+        "url": "https://assets.aboutamazon.com/ad/a8/8976f31c4777a8c100ff1933123b/2026-profiling-report-annex-2.pdf"
+      },
+      {
+        "label": "2025",
+        "url": "https://assets.aboutamazon.com/9c/04/6d809ce7489c86e25d5a8755e68b/amazon-profiling-report-2025.pdf"
+      },
+      {
+        "label": "2025 — Annex 1 - Amazon Store",
+        "url": "https://assets.aboutamazon.com/fd/99/be739fe6492894f5f22af34a6ab6/amazon-profiling-report-2025-annex-1.pdf"
+      },
+      {
+        "label": "2025 — Annex 2 - Amazon Ads",
+        "url": "https://assets.aboutamazon.com/64/ae/fd140e7e4db9931f27a100ff4071/amazon-profiling-report-2025-annex-2.pdf"
+      }
     ]
   },
   {
@@ -68,7 +107,16 @@
       { "name": "iPadOS", "type": "Operating system" }
     ],
     "complianceReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+      { "label": "Mar 2026", "url": "https://www.apple.com/legal/dma/NCS-March-2026.pdf" },
+      { "label": "Mar 2025", "url": "https://www.apple.com/legal/dma/NCS-March-2025.pdf" },
+      {
+        "label": "Nov 2024",
+        "url": "https://ec.europa.eu/competition/digital_markets_act/cases/202611/DMA_100123_206.pdf"
+      },
+      {
+        "label": "Mar 2024",
+        "url": "https://ec.europa.eu/competition/digital_markets_act/cases/202612/DMA_100123_122.pdf"
+      }
     ],
     "profilingReports": [
       {
@@ -83,16 +131,23 @@
     "designated": "2024-05-13",
     "services": [{ "name": "Booking.com", "type": "Online intermediation service" }],
     "complianceReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+      {
+        "label": "Nov 2025",
+        "url": "https://www.bookingholdings.com/wp-content/uploads/2025/11/2025-DMA-Compliance-Report-.pdf"
+      },
+      {
+        "label": "Nov 2024",
+        "url": "https://www.bookingholdings.com/wp-content/uploads/2024/11/DMA-Compliance-Report.pdf"
+      }
     ],
     "profilingReports": [
       {
-        "label": "Consumer profiling report (2024)",
-        "url": "https://www.bookingholdings.com/wp-content/uploads/2024/11/DMA-Consumer-Profiling-Report.pdf"
+        "label": "Nov 2025",
+        "url": "https://www.bookingholdings.com/wp-content/uploads/2025/11/2025-DMA-Consumer-Profiling-Report-.pdf"
       },
       {
-        "label": "Consumer profiling report (November 2025)",
-        "url": "https://www.bookingholdings.com/wp-content/uploads/2025/11/2025-DMA-Consumer-Profiling-Report-.pdf"
+        "label": "Nov 2024",
+        "url": "https://www.bookingholdings.com/wp-content/uploads/2024/11/DMA-Consumer-Profiling-Report.pdf"
       }
     ]
   },
@@ -102,10 +157,10 @@
     "designated": "2023-09-06",
     "services": [{ "name": "TikTok", "type": "Online social networking service" }],
     "complianceReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+      { "label": "DMA Transparency Reports", "url": "https://www.tiktok.com/transparency/en/dma-transparency" }
     ],
     "profilingReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add consumer profiling report URL" }
+      { "label": "DMA Transparency Reports", "url": "https://www.tiktok.com/transparency/en/dma-transparency" }
     ]
   },
   {
@@ -121,10 +176,10 @@
       { "name": "Meta Ads", "type": "Online advertising service" }
     ],
     "complianceReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add compliance report URL" }
+      { "label": "Regulatory Transparency Reports", "url": "https://transparency.meta.com/reports/regulatory-transparency-reports/" }
     ],
     "profilingReports": [
-      { "label": "TODO", "url": "#", "note": "TODO: Add consumer profiling report URL" }
+      { "label": "Regulatory Transparency Reports", "url": "https://transparency.meta.com/reports/regulatory-transparency-reports/" }
     ]
   },
   {
