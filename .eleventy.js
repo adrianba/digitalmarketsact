@@ -78,6 +78,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("site", {
     title: "Digital Markets Act",
     subtitle: "Regulation (EU) 2022/1925",
+    umami: {
+      src: "https://log.adrianba.net/script.js",
+      websiteId: "791269b9-2f97-4fad-b0a7-7cebfb5788e4",
+    },
   });
 
   // Filter: get recitals for an article
