@@ -393,7 +393,8 @@ a, button, [role="button"], input, select, textarea {
 @media print {
   header, footer, aside, #dark-mode-btn, #search-btn, #mobile-menu-btn, #mobile-menu,
   .permalink-btn, .permalink-badge-swap, .permalink-toast, .recital-chevron,
-  .dma-modal-overlay, nav[aria-label="Contextual menu"] {
+  .dma-modal-overlay, nav[aria-label="Contextual menu"],
+  .prev-next-nav {
     display: none !important;
   }
   body {
