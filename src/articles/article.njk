@@ -7,6 +7,7 @@ permalink: "/{{ article.number }}/"
 layout: base.njk
 eleventyComputed:
   pageTitle: "Article {{ article.number }}{% if article.title %} — {{ article.title }}{% endif %}"
+  pageDescription: "Article {{ article.number }}{% if article.title %} — {{ article.title }}{% endif %}. Read the full text with linked recitals. Digital Markets Act (EU 2022/1925)."
 ---
 
 {% set chapter = chapters | findChapter(article.chapter) %}
