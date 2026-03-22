@@ -76,6 +76,37 @@
   --radius-full: 0.75rem;
 }
 
+/* Dark mode color overrides */
+.dark {
+  --color-primary: #929bfa;
+  --color-primary-dim: #ced1ff;
+  --color-primary-container: #2c358e;
+  --color-primary-fixed-dim: #ced1ff;
+  --color-on-primary: #1a1a2e;
+  --color-on-primary-container: #e0e0ff;
+  --color-secondary: #c1d8e4;
+  --color-secondary-container: #2d424c;
+  --color-on-secondary-container: #cfe6f2;
+  --color-surface: #121416;
+  --color-surface-dim: #121416;
+  --color-surface-bright: #1e2022;
+  --color-surface-variant: #2a2d30;
+  --color-surface-container: #1a1c1e;
+  --color-surface-container-low: #161819;
+  --color-surface-container-high: #222527;
+  --color-surface-container-highest: #2a2d30;
+  --color-surface-container-lowest: #0e1011;
+  --color-on-surface: #e2e3e4;
+  --color-on-surface-variant: #a0a4a6;
+  --color-on-background: #e2e3e4;
+  --color-background: #121416;
+  --color-outline: #8a9092;
+  --color-outline-variant: #444a4c;
+  --color-tertiary: #ff6b6b;
+  --color-error: #ff8b9a;
+  color-scheme: dark;
+}
+
 /* Base styles */
 body {
   font-family: var(--font-body);
@@ -356,4 +387,39 @@ a, button, [role="button"], input, select, textarea {
 .dma-para-chip.active {
   background: var(--color-primary);
   color: var(--color-on-primary);
+}
+
+/* Print stylesheet */
+@media print {
+  header, footer, aside, #dark-mode-btn, #search-btn, #mobile-menu-btn, #mobile-menu,
+  .permalink-btn, .permalink-badge-swap, .permalink-toast, .recital-chevron,
+  .dma-modal-overlay, nav[aria-label="Contextual menu"] {
+    display: none !important;
+  }
+  body {
+    font-size: 11pt;
+    color: #000;
+    background: #fff;
+  }
+  .legal-text {
+    max-width: 100%;
+  }
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  a.recital-ref[href^="/"]::after {
+    content: " (dma.bz" attr(href) ")";
+  }
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: "";
+  }
+  .shadow-ambient {
+    box-shadow: none;
+  }
+  * {
+    transition: none !important;
+  }
 }

@@ -12,7 +12,11 @@ A clean, navigable website for browsing the full text of the [Digital Markets Ac
 - **Command palette** (`Ctrl+F` / `Ctrl+G`) — Unified search and navigation: type `5` to go to Article 5, `5.9` for Article 5 ¶9, `r36` for Recital 36, or any text to search across articles, recitals, and gatekeepers
 - **Auto-linked references** — Cross-references to other DMA articles link to those pages; EU legislation references (GDPR, ePrivacy Directive, etc.) link to EUR-Lex
 - **Permalink copy** — Hover over any article, paragraph, recital, or gatekeeper heading to reveal a link icon; click to copy a short `dma.bz` permalink to clipboard
+- **Expandable recitals** — Click a recital card on an article page to expand the full text inline
+- **Dark mode** — Toggle in header; respects system preference; persists in localStorage
+- **Print-friendly** — Clean print layout hiding navigation, showing link URLs
 - **Responsive design** — Mobile navigation with collapsible menu; desktop layout with sidebar
+- **SEO** — OpenGraph/Twitter meta tags, sitemap.xml, custom 404 page
 
 ## URL Schema
 

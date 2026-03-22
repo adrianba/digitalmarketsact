@@ -1,0 +1,22 @@
+---
+layout: base.njk
+pageTitle: Page Not Found
+permalink: /404.html
+---
+
+<div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 text-center">
+  <p class="article-tag mb-4">Error 404</p>
+  <h1 class="font-headline font-bold text-4xl md:text-5xl text-on-surface mb-4">Page Not Found</h1>
+  <p class="font-body text-lg text-on-surface-variant mb-8 max-w-md mx-auto">
+    The page you're looking for doesn't exist. It may have been moved or the URL may be incorrect.
+  </p>
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a href="/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary font-label font-medium text-sm hover:bg-primary-dim transition-colors">
+      Browse Articles
+    </a>
+    <button onclick="document.dispatchEvent(new KeyboardEvent('keydown',{key:'f',ctrlKey:true}))" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-surface-container text-on-surface font-label font-medium text-sm hover:bg-surface-container-high transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      Search
+    </button>
+  </div>
+</div>

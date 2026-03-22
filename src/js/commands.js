@@ -401,4 +401,43 @@
     btn.style.top = "0.25rem";
     el.insertBefore(btn, el.firstChild);
   });
+
+  // --- Expandable recital cards ---
+  document.querySelectorAll("[data-recital-expand]").forEach(function (card) {
+    card.addEventListener("click", function () {
+      var preview = card.querySelector(".recital-preview");
+      var full = card.querySelector(".recital-full");
+      var chevron = card.querySelector(".recital-chevron");
+      if (!preview || !full) return;
+      var isExpanded = !full.classList.contains("hidden");
+      if (isExpanded) {
+        full.classList.add("hidden");
+        preview.classList.remove("hidden");
+        if (chevron) chevron.style.transform = "";
+      } else {
+        preview.classList.add("hidden");
+        full.classList.remove("hidden");
+        if (chevron) chevron.style.transform = "rotate(180deg)";
+      }
+    });
+  });
+
+  // --- Dark mode toggle ---
+  function updateDarkModeIcons() {
+    var isDark = document.documentElement.classList.contains("dark");
+    var sun = document.getElementById("dark-mode-icon-sun");
+    var moon = document.getElementById("dark-mode-icon-moon");
+    if (sun) sun.classList.toggle("hidden", !isDark);
+    if (moon) moon.classList.toggle("hidden", isDark);
+  }
+  updateDarkModeIcons();
+
+  var darkBtn = document.getElementById("dark-mode-btn");
+  if (darkBtn) {
+    darkBtn.addEventListener("click", function () {
+      var isDark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("darkMode", isDark);
+      updateDarkModeIcons();
+    });
+  }
 })();
