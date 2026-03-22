@@ -317,6 +317,12 @@
     if ((e.ctrlKey || e.metaKey) && (e.key === "f" || e.key === "g")) {
       e.preventDefault();
       openCommandPalette();
+    } else if ((e.ctrlKey || e.metaKey) && e.key === ",") {
+      var prev = document.querySelector('[data-nav="prev"]');
+      if (prev) { e.preventDefault(); window.location.href = prev.href; }
+    } else if ((e.ctrlKey || e.metaKey) && e.key === ".") {
+      var next = document.querySelector('[data-nav="next"]');
+      if (next) { e.preventDefault(); window.location.href = next.href; }
     } else if (e.key === "Escape") {
       closeModal("dma-cmd");
     }

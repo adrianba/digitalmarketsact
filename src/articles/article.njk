@@ -147,7 +147,7 @@ eleventyComputed:
       {# Prev / Next navigation #}
       <nav class="prev-next-nav mt-12 max-w-3xl flex flex-col sm:flex-row gap-4 justify-between">
         {% if prevArt %}
-        <a href="/{{ prevArt.number }}/"
+        <a href="/{{ prevArt.number }}/" data-nav="prev"
            class="group flex items-center gap-3 bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all flex-1">
           <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -163,7 +163,7 @@ eleventyComputed:
         <div class="flex-1"></div>
         {% endif %}
         {% if nextArt %}
-        <a href="/{{ nextArt.number }}/"
+        <a href="/{{ nextArt.number }}/" data-nav="next"
            class="group flex items-center gap-3 bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all flex-1 sm:text-right sm:flex-row-reverse">
           <svg class="w-5 h-5 text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
