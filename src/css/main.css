@@ -391,7 +391,7 @@ a, button, [role="button"], input, select, textarea {
 
 /* Print stylesheet */
 @media print {
-  header, footer, aside, #dark-mode-btn, #search-btn, #mobile-menu-btn, #mobile-menu,
+  header.bg-surface-container-low, footer, aside, #dark-mode-btn, #search-btn, #mobile-menu-btn, #mobile-menu,
   .permalink-btn, .permalink-badge-swap, .permalink-toast, .recital-chevron,
   .dma-modal-overlay, nav[aria-label="Contextual menu"],
   .prev-next-nav {
