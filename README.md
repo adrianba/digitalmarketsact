@@ -10,13 +10,14 @@ A clean, navigable website for browsing the full text of the [Digital Markets Ac
 - **Recitals page** — All 109 recitals with back-links to their corresponding article paragraph
 - **Gatekeepers page** — 7 designated gatekeepers with their core platform services, compliance reports, and consumer profiling reports
 - **Command palette** (`Ctrl+F` / `Ctrl+G`) — Unified search and navigation: type `5` to go to Article 5, `5.9` for Article 5 ¶9, `r36` for Recital 36, or any text to search across articles, recitals, and gatekeepers
+- **Article navigation** (`Ctrl+,` / `Ctrl+.`) — Previous/next article keyboard shortcuts
 - **Auto-linked references** — Cross-references to other DMA articles link to those pages; EU legislation references (GDPR, ePrivacy Directive, etc.) link to EUR-Lex
 - **Permalink copy** — Hover over any article, paragraph, recital, or gatekeeper heading to reveal a link icon; click to copy a short `dma.bz` permalink to clipboard
 - **Expandable recitals** — Click a recital card on an article page to expand the full text inline
 - **Dark mode** — Toggle in header; respects system preference; persists in localStorage
 - **Print-friendly** — Clean print layout hiding navigation, showing link URLs
 - **Responsive design** — Mobile navigation with collapsible menu; desktop layout with sidebar
-- **SEO** — OpenGraph/Twitter meta tags, sitemap.xml, custom 404 page
+- **SEO** — Per-page OpenGraph/Twitter meta tags, sitemap.xml, custom 404 page
 
 ## URL Schema
 
@@ -89,6 +90,8 @@ This runs Eleventy's dev server and Tailwind's CSS watcher concurrently.
 │   ├── js/
 │   │   └── commands.js       # Search, go-to-article/recital UI (minified in prod)
 │   ├── search-index.njk      # Generates /search-index.json at build time
+│   ├── sitemap.njk           # Generates /sitemap.xml at build time
+│   ├── 404.njk               # Custom 404 error page
 │   ├── index.njk             # Home page — chapter-grouped article listing
 │   ├── recitals.njk          # Recitals listing page
 │   └── gatekeepers.njk       # Designated gatekeepers page
