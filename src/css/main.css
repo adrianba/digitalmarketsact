@@ -176,6 +176,20 @@ a, button, [role="button"], input, select, textarea {
   text-decoration-color: var(--color-primary);
 }
 
+/* Recital expand/collapse — native <details>/<summary> */
+.recital-card summary.recital-summary {
+  list-style: none;
+}
+.recital-card summary.recital-summary::-webkit-details-marker {
+  display: none;
+}
+.recital-card[open] .recital-preview {
+  display: none;
+}
+.recital-card[open] .recital-chevron {
+  transform: rotate(180deg);
+}
+
 /* Permalink copy button */
 .permalink-btn {
   display: inline-flex;

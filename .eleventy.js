@@ -24,17 +24,34 @@ module.exports = function (eleventyConfig) {
     "Directive (EU) 2020/1828": "32020L1828",
   };
 
+  // Protect data-no-autolink elements from auto-linking by replacing with placeholders
+  function protectNoAutoLink(content) {
+    var parts = [];
+    var result = content.replace(/<([a-z][a-z0-9]*)\b[^>]*data-no-autolink[^>]*>[\s\S]*?<\/\1>/gi, function (match) {
+      parts.push(match);
+      return "\x00NAL" + (parts.length - 1) + "\x00";
+    });
+    return { content: result, parts: parts };
+  }
+
+  function restoreNoAutoLink(content, parts) {
+    for (var i = 0; i < parts.length; i++) {
+      content = content.replace("\x00NAL" + i + "\x00", parts[i]);
+    }
+    return content;
+  }
+
   eleventyConfig.addTransform("linkLegislation", function (content) {
     if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    var prot = protectNoAutoLink(content);
+    content = prot.content;
     for (const [name, celex] of Object.entries(defined_celex)) {
       const url = "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:" + celex;
       const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/ /g, "(?:\\s|&nbsp;)");
-      // Track <a> and data-no-autolink nesting to avoid linking inside
       var inSkip = 0;
-      var re = new RegExp("(<a\\b[^>]*>|<\\/a>|<title>|<\\/title>|<meta\\b[^>]*>|<[^>]+data-no-autolink[^>]*>|<\\/h[1-6]>)|(" + escaped + ")", "gi");
+      var re = new RegExp("(<a\\b[^>]*>|<\\/a>|<title>|<\\/title>|<meta\\b[^>]*>)|(" + escaped + ")", "gi");
       content = content.replace(re, function (match, tag, text) {
         if (tag) {
-          // Self-closing tags like <meta> don't increment — just skip
           if (tag.startsWith("</")) inSkip = Math.max(0, inSkip - 1);
           else if (!tag.endsWith("/>") && !tag.startsWith("<meta")) inSkip++;
           return match;
@@ -43,15 +60,16 @@ module.exports = function (eleventyConfig) {
         return '<a href="' + url + '" class="recital-ref" target="_blank" rel="noopener">' + text + "</a>";
       });
     }
-    return content;
+    return restoreNoAutoLink(content, prot.parts);
   });
 
   // Auto-link internal DMA article references (Article 1–54)
   eleventyConfig.addTransform("linkArticleRefs", function (content) {
     if (!(this.page.outputPath || "").endsWith(".html")) return content;
-    // Track <a> and data-no-autolink nesting to skip their content
+    var prot = protectNoAutoLink(content);
+    content = prot.content;
     var inSkip = 0;
-    var result = content.replace(/(<a\b[^>]*>|<\/a>|<title>|<\/title>|<meta\b[^>]*>|<[^>]+data-no-autolink[^>]*>|<\/h[1-6]>)|Article(?:&nbsp;|\s)+(\d{1,2})(?:\((\d+)\))?/gi,
+    var result = content.replace(/(<a\b[^>]*>|<\/a>|<title>|<\/title>|<meta\b[^>]*>)|Article(?:&nbsp;|\s)+(\d{1,2})(?:\((\d+)\))?/gi,
       function (match, tag, artStr, paraStr, offset) {
         if (tag) {
           if (tag.startsWith("</")) inSkip = Math.max(0, inSkip - 1);
@@ -62,7 +80,6 @@ module.exports = function (eleventyConfig) {
         var artNum = parseInt(artStr, 10);
         if (artNum < 1 || artNum > 54) return match;
         // Skip if this Article reference is part of another Regulation/Directive
-        // Look ahead up to 200 chars (skipping HTML tags) for "of Regulation" or "of Directive"
         var lookahead = content.substring(offset + match.length, offset + match.length + 200)
           .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ");
         if (/^[^.;]*?\bof\s+(?:Regulation|Directive)\b/i.test(lookahead)) return match;
@@ -71,7 +88,7 @@ module.exports = function (eleventyConfig) {
         return '<a href="' + url + '" class="recital-ref">' + match + "</a>";
       }
     );
-    return result;
+    return restoreNoAutoLink(result, prot.parts);
   });
 
   // Make data available globally

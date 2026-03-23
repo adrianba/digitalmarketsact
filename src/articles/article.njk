@@ -117,28 +117,30 @@ eleventyComputed:
         {% if paraRecitals.length > 0 %}
         <div class="xl:w-56 shrink-0 flex flex-col gap-3">
           {% for rec in paraRecitals %}
-          <div class="recital-card bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all border-l-2 border-primary-fixed-dim cursor-pointer"
-               data-recital-expand>
-            <div class="flex items-center justify-between mb-1">
-              <p class="font-label text-xs font-medium text-primary">Recital {{ rec.number }}</p>
-              <div class="flex items-center gap-2">
-                <a href="/r/#r{{ rec.number }}" class="text-outline-variant hover:text-primary transition-colors" title="View in recitals page" onclick="event.stopPropagation()">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+          <details class="recital-card bg-surface-container-lowest rounded-xl p-4 hover:shadow-ambient transition-all border-l-2 border-primary-fixed-dim cursor-pointer"
+                   data-recital-expand>
+            <summary class="recital-summary">
+              <div class="flex items-center justify-between mb-1">
+                <p class="font-label text-xs font-medium text-primary">Recital {{ rec.number }}</p>
+                <div class="flex items-center gap-2">
+                  <a href="/r/#r{{ rec.number }}" class="text-outline-variant hover:text-primary transition-colors" title="View in recitals page" onclick="event.stopPropagation()">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                  </a>
+                  <svg class="recital-chevron w-3.5 h-3.5 text-outline-variant transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                   </svg>
-                </a>
-                <svg class="recital-chevron w-3.5 h-3.5 text-outline-variant transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                </svg>
+                </div>
               </div>
-            </div>
-            <p class="recital-preview font-body text-sm text-on-surface-variant italic line-clamp-4">
-              {{ rec.text | truncate(160) }}
-            </p>
-            <div class="recital-full hidden font-body text-sm text-on-surface leading-relaxed mt-2">
+              <p class="recital-preview font-body text-sm text-on-surface-variant italic line-clamp-4">
+                {{ rec.text | truncate(160) }}
+              </p>
+            </summary>
+            <div class="font-body text-sm text-on-surface leading-relaxed mt-2">
               {{ rec.html | safe }}
             </div>
-          </div>
+          </details>
           {% endfor %}
         </div>
         {% endif %}

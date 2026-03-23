@@ -420,25 +420,13 @@
     el.insertBefore(btn, el.firstChild);
   });
 
-  // --- Expandable recital cards ---
+  // --- Expandable recital cards (native <details>/<summary>, analytics only) ---
   document.querySelectorAll("[data-recital-expand]").forEach(function (card) {
-    card.addEventListener("click", function () {
-      var preview = card.querySelector(".recital-preview");
-      var full = card.querySelector(".recital-full");
-      var chevron = card.querySelector(".recital-chevron");
-      if (!preview || !full) return;
-      var isExpanded = !full.classList.contains("hidden");
-      if (isExpanded) {
-        full.classList.add("hidden");
-        preview.classList.remove("hidden");
-        if (chevron) chevron.style.transform = "";
-      } else {
+    card.addEventListener("toggle", function () {
+      if (card.open) {
         var recLabel = card.querySelector(".font-label");
         var recNum = recLabel ? recLabel.textContent.replace(/\D/g, "") : "";
         track("recital-expand", { recital: recNum });
-        preview.classList.add("hidden");
-        full.classList.remove("hidden");
-        if (chevron) chevron.style.transform = "rotate(180deg)";
       }
     });
   });
