@@ -183,6 +183,9 @@ a, button, [role="button"], input, select, textarea {
 .recital-card summary.recital-summary::-webkit-details-marker {
   display: none;
 }
+.recital-card summary.recital-summary::marker {
+  content: "";
+}
 .recital-card[open] .recital-preview {
   display: none;
 }
